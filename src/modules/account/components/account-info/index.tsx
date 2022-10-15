@@ -42,8 +42,8 @@ const AccountInfo = ({
     <div className="text-small-regular">
       <div className="flex items-end justify-between">
         <div className="flex flex-col">
-          <span className="uppercase text-gray-700">{label}</span>
-          <div className="flex items-center flex-1 basis-0 justify-end gap-x-4">
+          <span className="text-gray-700 uppercase dark:text-gray-400">{label}</span>
+          <div className="flex items-center justify-end flex-1 basis-0 gap-x-4">
             {typeof currentInfo === "string" ? (
               <span className="font-semibold">{currentInfo}</span>
             ) : (
@@ -75,7 +75,7 @@ const AccountInfo = ({
             }
           )}
         >
-          <div className="bg-green-100 text-green-500 p-4 my-4">
+          <div className="p-4 my-4 text-green-500 bg-green-100">
             <span>{label} updated succesfully</span>
           </div>
         </Disclosure.Panel>
@@ -93,7 +93,7 @@ const AccountInfo = ({
             }
           )}
         >
-          <div className="bg-rose-100 text-rose-500 p-4 mt-4">
+          <div className="p-4 mt-4 bg-rose-100 text-rose-500">
             <span>{errorMessage}</span>
           </div>
         </Disclosure.Panel>
@@ -110,7 +110,7 @@ const AccountInfo = ({
             }
           )}
         >
-          <div className="flex flex-col gap-y-2 py-4">
+          <div className="flex flex-col py-4 gap-y-2">
             <div>{children}</div>
             <div className="flex items-center justify-end mt-2">
               <Button

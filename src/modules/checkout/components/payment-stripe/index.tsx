@@ -11,15 +11,12 @@ import {
 import React, { useMemo } from "react"
 
 const PaymentStripe: React.FC = () => {
-  const useOptions:
-    | StripeCardNumberElementOptions
-    | StripeCardExpiryElementOptions
-    | StripeCardCvcElementOptions = useMemo(() => {
+  const useOptions = useMemo(() => {
     return {
       style: {
         base: {
           fontFamily: "Inter, sans-serif",
-          color: "#424270",
+          color: "#808080",
           padding: "10px 12px",
           "::placeholder": {
             color: "#CFD7E0",
@@ -31,9 +28,9 @@ const PaymentStripe: React.FC = () => {
 
   return (
     <div>
-      <div className="flex flex-col relative w-full pb-6">
+      <div className="relative flex flex-col w-full pb-6">
         <CardNumber options={useOptions as StripeCardNumberElementOptions} />
-        <div className="flex items-center mt-12 relative gap-x-4">
+        <div className="relative flex items-center mt-12 gap-x-4">
           <CardExpiry options={useOptions as StripeCardExpiryElementOptions} />
           <CardCVC options={useOptions as StripeCardCvcElementOptions} />
         </div>
@@ -48,8 +45,8 @@ const CardNumber = ({
   options: StripeCardNumberElementOptions
 }) => {
   return (
-    <div className="border-b border-gray-200 py-2 relative">
-      <span className="absolute -top-6 text-gray-700 text-base-regular">
+    <div className="relative py-2 border-b border-gray-200">
+      <span className="absolute text-gray-700 dark:text-gray-400 -top-6 text-base-regular">
         Card number
       </span>
       <CardNumberElement options={options} />
@@ -63,8 +60,8 @@ const CardExpiry = ({
   options: StripeCardExpiryElementOptions
 }) => {
   return (
-    <div className="border-b border-gray-200 w-full py-2 relative">
-      <span className="absolute -top-6 text-gray-700 text-base-regular">
+    <div className="relative w-full py-2 border-b border-gray-200">
+      <span className="absolute text-gray-700 dark:text-gray-400 -top-6 text-base-regular">
         Expiration date
       </span>
       <CardExpiryElement options={options} />
@@ -74,8 +71,8 @@ const CardExpiry = ({
 
 const CardCVC = ({ options }: { options: StripeCardCvcElementOptions }) => {
   return (
-    <div className="border-b border-gray-200 w-full py-2 relative">
-      <span className="absolute -top-6 text-gray-700 text-base-regular">
+    <div className="relative w-full py-2 border-b border-gray-200">
+      <span className="absolute text-gray-700 dark:text-gray-400 -top-6 text-base-regular">
         CVC
       </span>
       <CardCvcElement options={{ ...options, placeholder: "123" }} />

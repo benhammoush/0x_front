@@ -7,18 +7,18 @@ const FeaturedProducts = () => {
   const { data } = useFeaturedProductsQuery()
 
   return (
-    <div className="py-12">
-      <div className="content-container py-12">
-        <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-base-regular text-gray-600 mb-6">
+    <div className="bg-gray-50 dark:bg-darkbg dark:text-white">
+      <div className="py-12 content-container">
+        <div className="flex flex-col items-center mb-16 text-center">
+          <span className="mt-0 mb-2 text-xs font-normal tracking-widest text-gray-400 uppercase">
             Latest products
           </span>
-          <p className="text-2xl-regular text-gray-900 max-w-lg mb-4">
+          <p className="max-w-lg mb-4 text-gray-900 dark:text-white text-2xl-regular">
             Our newest styles are here to help you look your best.
           </p>
           <UnderlineLink href="/store">Explore products</UnderlineLink>
         </div>
-        <ul className="grid grid-cols-2 small:grid-cols-4 gap-x-4 gap-y-8">
+        <ul className="grid grid-cols-2 px-5 py-5 bg-white border rounded-md dark:border-darkborder dark:bg-mediumbg small:grid-cols-4 gap-x-4 gap-y-8">
           {data
             ? data.map((product) => (
                 <li key={product.id}>

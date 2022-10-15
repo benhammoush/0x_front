@@ -54,7 +54,7 @@ const CollectionTemplate: React.FC<CollectionTemplateProps> = ({
   }, [inView, hasNextPage])
 
   return (
-    <div className="content-container py-6">
+    <div className="py-6 content-container">
       <div className="mb-8 text-2xl-semi">
         <h1>{collection.title}</h1>
       </div>
@@ -79,7 +79,7 @@ const CollectionTemplate: React.FC<CollectionTemplateProps> = ({
           ))}
       </ul>
       <div
-        className="py-16 flex justify-center items-center text-small-regular text-gray-700"
+        className="flex items-center justify-center py-16 text-gray-700 text-small-regular"
         ref={ref}
       >
         <span ref={ref}></span>

@@ -15,9 +15,21 @@ type ItemsProps = {
 
 const Items = ({ items, region, cartId }: ItemsProps) => {
   const enrichedItems = useEnrichedLineItems(items, cartId)
-
+  const openModel = (url) => {
+    var image = new Image();
+        image.src = url;
+        var w = window.open("");
+        w.document.write(image.outerHTML);
+  }
+  const openNfts = (nfts) => {
+    var i = 0
+    nfts.forEach(element => {
+      window.open(element, '_blank' + i)
+      i++;
+    });
+  }
   return (
-    <div className="p-10 border-b border-gray-200 gap-y-4 flex flex-col">
+    <div className="flex flex-col p-10 border-b border-gray-200 dark:text-white dark:border-darkborder gap-y-4">
       {enrichedItems?.length
         ? enrichedItems.map((item) => {
             return (
@@ -29,7 +41,7 @@ const Items = ({ items, region, cartId }: ItemsProps) => {
                   <div className="flex flex-col flex-1 text-small-regular">
                     <div className="flex items-start justify-between">
                       <div>
-                        <h3 className="text-base-regular overflow-ellipsis overflow-hidden whitespace-nowrap mr-4">
+                        <h3 className="mr-4 overflow-hidden text-base-regular overflow-ellipsis whitespace-nowrap">
                           <Link
                             href={`/products/${item.variant.product.handle}`}
                           >
@@ -38,6 +50,16 @@ const Items = ({ items, region, cartId }: ItemsProps) => {
                         </h3>
                         <LineItemOptions variant={item.variant} />
                         <span>Quantity: {item.quantity}</span>
+                        {typeof item.metadata.model != "undefined" ? (
+                          <div className="flex flex-col justify-center">
+                          <span className="truncate inter-small-regular text-grey-50">
+                              <button className="underline" onClick={() => openModel(item.metadata.model)}>View model</button>
+                          </span>
+                          <span className="truncate inter-small-regular text-grey-50">
+                              <button className="underline" onClick={() => openNfts(item.metadata.sources)}>View sources</button>
+                          </span>
+                            </div>
+                        ) : ""}
                       </div>
                       <div className="flex justify-end">
                         <LineItemPrice

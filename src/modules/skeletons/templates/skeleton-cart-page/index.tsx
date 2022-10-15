@@ -8,11 +8,11 @@ const SkeletonCartPage = () => {
     <div className="content-container">
       <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-x-8 py-12">
         <div>
-          <div className="flex items-center justify-between border-b border-gray-200 pb-8">
-            <div className="w-64 h-10 bg-gray-100"></div>
-            <div className="w-32 h-6 bg-gray-100"></div>
+          <div className="flex items-center justify-between pb-8 border-b border-gray-200">
+            <div className="w-64 h-10 bg-gray-100 dark:bg-mediumbg"></div>
+            <div className="w-32 h-6 bg-gray-100 dark:bg-mediumbg"></div>
           </div>
-          <div className="flex flex-col gap-y-8 py-8">
+          <div className="flex flex-col py-8 gap-y-8">
             {repeat(4).map((index) => (
               <SkeletonCartItem key={index} />
             ))}

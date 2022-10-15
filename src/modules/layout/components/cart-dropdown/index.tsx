@@ -19,7 +19,7 @@ const CartDropdown = () => {
   const { state, open, close } = useCartDropdown()
 
   return (
-    <div className="h-full z-50" onMouseEnter={open} onMouseLeave={close}>
+    <div className="z-50 h-full" onMouseEnter={open} onMouseLeave={close}>
       <Popover className="relative h-full">
         <Link href="/cart" passHref>
           <Popover.Button className="h-full">{`My Bag (${totalItems})`}</Popover.Button>
@@ -36,9 +36,9 @@ const CartDropdown = () => {
         >
           <Popover.Panel
             static
-            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[382px] text-gray-900"
+            className="hidden small:block absolute top-[calc(100%+1px)] right-0 dark:bg-darkbg bg-white rounded border-x border-b border-gray-200 dark:border-darkborder w-[382px] dark:text-white text-gray-900"
           >
-            <div className="p-4 flex items-center justify-center">
+            <div className="flex items-center justify-center p-4">
               <h3 className="text-large-semi">Shopping Bag</h3>
             </div>
             {cart && items?.length ? (
@@ -80,10 +80,10 @@ const CartDropdown = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="flex items-end justify-between text-small-regular flex-1">
+                          <div className="flex items-end justify-between flex-1 text-small-regular">
                             <div>
                               <button
-                                className="flex items-center gap-x-1 text-gray-500"
+                                className="flex items-center text-gray-500 gap-x-1"
                                 onClick={() => deleteItem(item.id)}
                               >
                                 <Trash size={14} />
@@ -95,9 +95,9 @@ const CartDropdown = () => {
                       </div>
                     ))}
                 </div>
-                <div className="p-4 flex flex-col gap-y-4 text-small-regular">
+                <div className="flex flex-col p-4 gap-y-4 text-small-regular">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-700 font-semibold">
+                    <span className="font-semibold text-gray-700 dark:text-gray-400">
                       Subtotal{" "}
                       <span className="font-normal">(incl. taxes)</span>
                     </span>
@@ -118,8 +118,8 @@ const CartDropdown = () => {
               </>
             ) : (
               <div>
-                <div className="flex py-16 flex-col gap-y-4 items-center justify-center">
-                  <div className="bg-gray-900 text-small-regular flex items-center justify-center w-6 h-6 rounded-full text-white">
+                <div className="flex flex-col items-center justify-center py-16 gap-y-4">
+                  <div className="flex items-center justify-center w-6 h-6 text-white bg-gray-900 rounded-full text-small-regular">
                     <span>0</span>
                   </div>
                   <span>Your shopping bag is empty.</span>

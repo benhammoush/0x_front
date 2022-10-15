@@ -44,12 +44,12 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="bg-white flex flex-col gap-y-3 justify-center items-center text-large-regular p-4 h-full w-full border-t border-gray-200">
+          <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-white border-t border-gray-200 dark:border-darkborder dark:bg-darkbg dark:text-white gap-y-3 text-large-regular">
             <div className="flex items-center gap-x-2">
               <span>{product.title}</span>
               <span>—</span>
               {selectedPrice ? (
-                <div className="flex items-end gap-x-2 text-gray-700">
+                <div className="flex items-end text-gray-700 gap-x-2">
                   {selectedPrice.price_type === "sale" && (
                     <p>
                       <span className="line-through text-small-regular">
@@ -69,9 +69,9 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
                 <div></div>
               )}
             </div>
-            <div className="grid grid-cols-2 w-full gap-x-4">
-              <Button onClick={open} variant="secondary">
-                <div className="flex items-center justify-between w-full">
+            <div className="grid w-full grid-cols-2 gap-x-4">
+              <Button onClick={open} variant="secondary" className="dark:bg-darkbg">
+                <div className="flex items-center justify-between w-full dark:text-white ">
                   <span>
                     {variant
                       ? Object.values(options).join(" / ")
@@ -99,8 +99,8 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
             <div className="fixed inset-0 bg-gray-700 bg-opacity-75 backdrop-blur-sm" />
           </Transition.Child>
 
-          <div className="fixed bottom-0 inset-x-0">
-            <div className="flex min-h-full h-full items-center justify-center text-center">
+          <div className="fixed inset-x-0 bottom-0">
+            <div className="flex items-center justify-center h-full min-h-full text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -110,16 +110,16 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Dialog.Panel className="w-full h-full transform overflow-hidden text-left flex flex-col gap-y-3">
-                  <div className="w-full flex justify-end pr-6">
+                <Dialog.Panel className="flex flex-col w-full h-full overflow-hidden text-left transform gap-y-3">
+                  <div className="flex justify-end w-full pr-6">
                     <button
                       onClick={close}
-                      className="bg-white w-12 h-12 rounded-full text-gray-900 flex justify-center items-center"
+                      className="flex items-center justify-center w-12 h-12 text-gray-900 bg-white rounded-full"
                     >
                       <X />
                     </button>
                   </div>
-                  <div className="bg-white px-6 py-12">
+                  <div className="px-6 py-12 bg-white dark:bg-mediumbg dark:text-white">
                     {product.variants.length > 1 && (
                       <div className="flex flex-col gap-y-6">
                         {product.options.map((option) => {

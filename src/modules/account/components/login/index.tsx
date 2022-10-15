@@ -38,9 +38,9 @@ const Login = () => {
   })
 
   return (
-    <div className="max-w-sm w-full flex flex-col items-center">
-      <h1 className="text-large-semi uppercase mb-6">Welcome back</h1>
-      <p className="text-center text-base-regular text-gray-700 mb-8">
+    <div className="flex flex-col items-center lg:h-[500px] w-full max-w-sm">
+      <h1 className="mb-6 uppercase dark:text-white text-large-semi">Welcome back</h1>
+      <p className="mb-8 text-center text-gray-700 text-base-regular dark:text-white">
         Sign in to access an enhanced shopping experience.
       </p>
       <form className="w-full" onSubmit={onSubmit}>
@@ -61,14 +61,14 @@ const Login = () => {
         </div>
         {authError && (
           <div>
-            <span className="text-rose-500 w-full text-small-regular">
+            <span className="w-full text-rose-500 text-small-regular">
               These credentials do not match our records
             </span>
           </div>
         )}
         <Button className="mt-6">Enter</Button>
       </form>
-      <span className="text-center text-gray-700 text-small-regular mt-6">
+      <span className="mt-6 text-center text-gray-700 dark:text-white text-small-regular">
         Not a member?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}

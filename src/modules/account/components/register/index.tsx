@@ -42,13 +42,13 @@ const Register = () => {
   })
 
   return (
-    <div className="max-w-sm flex flex-col items-center mt-12">
-      <h1 className="text-large-semi uppercase mb-6">Become a Acme Member</h1>
-      <p className="text-center text-base-regular text-gray-700 mb-4">
-        Create your Acme Member profile, and get access to an enhanced shopping
+    <div className="flex flex-col items-center max-w-sm mt-12">
+      <h1 className="mb-6 uppercase dark:text-white text-large-semi">Become a 0X Member</h1>
+      <p className="mb-4 text-center text-gray-700 text-base-regular dark:text-white">
+        Create your 0X Member profile, and get access to an enhanced shopping
         experience.
       </p>
-      <form className="w-full flex flex-col" onSubmit={onSubmit}>
+      <form className="flex flex-col w-full" onSubmit={onSubmit}>
         <div className="flex flex-col w-full gap-y-2">
           <Input
             label="First name"
@@ -86,13 +86,13 @@ const Register = () => {
         </div>
         {authError && (
           <div>
-            <span className="text-rose-500 w-full text-small-regular">
+            <span className="w-full text-rose-500 text-small-regular">
               These credentials do not match our records
             </span>
           </div>
         )}
-        <span className="text-center text-gray-700 text-small-regular mt-6">
-          By creating an account, you agree to Acme&apos;s{" "}
+        <span className="mt-6 text-center text-gray-700 text-small-regular">
+          By creating an account, you agree to 0X&apos;s{" "}
           <Link href="/content/privacy-policy">
             <a className="underline">Privacy Policy</a>
           </Link>{" "}
@@ -104,7 +104,7 @@ const Register = () => {
         </span>
         <Button className="mt-6">Join</Button>
       </form>
-      <span className="text-center text-gray-700 text-small-regular mt-6">
+      <span className="mt-6 text-center text-gray-700 text-small-regular">
         Already a member?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}

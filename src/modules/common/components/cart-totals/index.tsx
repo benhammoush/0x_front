@@ -26,8 +26,8 @@ const CartTotals: React.FC<CartTotalsProps> = ({ cart }) => {
 
   return (
     <div>
-      <div className="text-small-regular text-gray-700">
-        <div className="flex items-center justify-between text-base-regular text-gray-900 mb-2">
+      <div className="text-gray-700 text-small-regular dark:text-gray-400">
+        <div className="flex items-center justify-between mb-2 text-gray-900 dark:text-white text-base-regular">
           <span>Subtotal</span>
           <span>{getAmount(subtotal)}</span>
         </div>
@@ -53,8 +53,8 @@ const CartTotals: React.FC<CartTotalsProps> = ({ cart }) => {
             <span>{getAmount(tax_total)}</span>
           </div>
         </div>
-        <div className="h-px w-full border-b border-gray-200 border-dashed my-4" />
-        <div className="flex items-center justify-between text-base-regular text-gray-900 mb-2">
+        <div className="w-full h-px my-4 border-b border-gray-200 border-dashed" />
+        <div className="flex items-center justify-between mb-2 text-gray-900 dark:text-white text-base-regular">
           <span>Total</span>
           <span>{getAmount(total)}</span>
         </div>

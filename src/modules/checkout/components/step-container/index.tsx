@@ -23,13 +23,13 @@ const StepContainer = ({
   return (
     <div>
       <div
-        className={clsx("bg-white", className, {
+        className={clsx("bg-white dark:border-darkborder border rounded-lg dark:bg-mediumbg dark:text-white", className, {
           "opacity-50 pointer-events-none select-none": state,
         })}
         {...props}
       >
-        <div className="text-xl-semi flex items-center gap-x-4 px-8 pb-6 pt-8">
-          <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center text-sm">
+        <div className="flex items-center px-8 pt-8 pb-6 text-xl-semi gap-x-4">
+          <div className="flex items-center justify-center w-8 h-8 text-sm text-white bg-gray-900 rounded-full">
             {index}
           </div>
           <h2>{title}</h2>

@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "test",
+            "database": "C:\\Users\\Workstation\\Documents\\Workspace\\0x\\Gatsby Dev II\\Project\\backend\\medusa-db.sql"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

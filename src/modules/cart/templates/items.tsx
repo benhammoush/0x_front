@@ -10,10 +10,10 @@ type ItemsTemplateProps = {
 const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {
   return (
     <div>
-      <div className="border-b border-gray-200 pb-3 flex items-center">
+      <div className="flex items-center pb-3 border-b border-gray-200 dark:text-white">
         <h1 className="text-xl-semi">Shopping Bag</h1>
       </div>
-      <div className="grid grid-cols-1 gap-y-8 py-8">
+      <div className="grid grid-cols-1 py-8 dark:text-white gap-y-8">
         {items && region
           ? items
               .sort((a, b) => {

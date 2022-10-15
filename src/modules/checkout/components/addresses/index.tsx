@@ -14,9 +14,9 @@ const Addresses = () => {
     cart,
   } = useCheckout()
   return (
-    <div className="bg-white">
-      <div className="text-xl-semi flex items-center gap-x-4 px-8 pb-6 pt-8">
-        <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center text-sm">
+    <div className="bg-white border rounded-lg dark:border-darkborder dark:text-white dark:bg-mediumbg">
+      <div className="flex items-center px-8 pt-8 pb-6 text-xl-semi gap-x-4">
+        <div className="flex items-center justify-center w-8 h-8 text-sm text-white bg-gray-900 rounded-full">
           1
         </div>
         <h2>Shipping address</h2>
@@ -33,8 +33,8 @@ const Addresses = () => {
           </div>
           {!checked && (
             <div>
-              <div className="text-xl-semi flex items-center gap-x-4 pb-6 pt-8">
-                <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center font-mono text-sm">
+              <div className="flex items-center pt-8 pb-6 text-xl-semi gap-x-4">
+                <div className="flex items-center justify-center w-8 h-8 font-mono text-sm text-white bg-gray-900 rounded-full">
                   2
                 </div>
                 <h2>Billing address</h2>
@@ -51,7 +51,7 @@ const Addresses = () => {
         </div>
       ) : (
         <div>
-          <div className="bg-gray-50 px-8 py-6 text-small-regular">
+          <div className="px-8 py-6 bg-gray-50 dark:bg-darkbg text-small-regular">
             {cart && cart.shipping_address ? (
               <div className="flex items-start gap-x-8">
                 <div className="bg-green-400 rounded-full min-w-[24px] h-6 flex items-center justify-center text-white text-small-regular">
@@ -74,13 +74,13 @@ const Addresses = () => {
                     <span>
                       {cart.shipping_address.country_code?.toUpperCase()}
                     </span>
-                    <div className="mt-4 flex flex-col">
+                    <div className="flex flex-col mt-4">
                       <span>{cart.shipping_address.phone}</span>
                       <span>{cart.email}</span>
                     </div>
                     {checked && (
-                      <div className="flex items-center gap-x-2 mt-6">
-                        <div className="flex items-center justify-center border border-gray-700 bg-gray-100 w-4 h-4">
+                      <div className="flex items-center mt-6 gap-x-2">
+                        <div className="flex items-center justify-center w-4 h-4 bg-gray-100 border border-gray-700">
                           ✓
                         </div>
                         <span>Same as billing address</span>
@@ -100,13 +100,13 @@ const Addresses = () => {
           </div>
           {!checked && (
             <div>
-              <div className="text-xl-semi flex items-center gap-x-4 px-8 pb-6 pt-8">
-                <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center font-mono text-sm">
+              <div className="flex items-center px-8 pt-8 pb-6 text-xl-semi gap-x-4">
+                <div className="flex items-center justify-center w-8 h-8 font-mono text-sm text-white bg-gray-900 rounded-full">
                   2
                 </div>
                 <h2>Billing address</h2>
               </div>
-              <div className="bg-gray-50 px-8 py-6 text-small-regular">
+              <div className="px-8 py-6 bg-gray-50 dark:bg-darkbg text-small-regular">
                 {cart && cart.billing_address ? (
                   <div className="flex items-start gap-x-8">
                     <div className="bg-green-400 rounded-full min-w-[24px] h-6 flex items-center justify-center text-white text-small-regular">
@@ -130,7 +130,7 @@ const Addresses = () => {
                           {cart.billing_address.country_code?.toUpperCase()}
                         </span>
 
-                        <div className="mt-4 flex flex-col">
+                        <div className="flex flex-col mt-4">
                           <span>{cart.billing_address.phone}</span>
                         </div>
                       </div>

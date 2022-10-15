@@ -53,12 +53,12 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
   const previews = usePreviews({ pages: data?.pages, region: cart?.region })
 
   return (
-    <div className="product-page-constraint">
-      <div className="flex flex-col items-center text-center mb-16">
-        <span className="text-base-regular text-gray-600 mb-6">
+    <div className="product-page-constraint dark:text-white">
+      <div className="flex flex-col items-center mb-16 text-center">
+        <span className="mb-6 text-gray-600 text-base-regular dark:text-white">
           Related products
         </span>
-        <p className="text-2xl-regular text-gray-900 max-w-lg">
+        <p className="max-w-lg text-gray-900 dark:text-white text-2xl-regular">
           You might also want to check out these products.
         </p>
       </div>
@@ -84,7 +84,7 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
           ))}
       </ul>
       {hasNextPage && (
-        <div className="flex items-center justify-center mt-8">
+        <div className="flex items-center justify-center mt-20 dark:text-white">
           <Button
             isLoading={isLoading}
             onClick={() => fetchNextPage()}

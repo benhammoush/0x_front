@@ -7,14 +7,14 @@ const FooterNav = () => {
   const { collections } = useCollections()
 
   return (
-    <div className="content-container flex flex-col gap-y-8 pt-16 pb-8">
-      <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between">
+    <div className="flex flex-col pt-16 pb-8 content-container dark:bg-mediumbg bg-ui-light dark:text-white gap-y-8">
+      <div className="flex flex-col items-start justify-between dark:bg-mediumbg gap-y-6 xsmall:flex-row">
         <div>
           <Link href="/">
-            <a className="text-xl-semi uppercase">Acme</a>
+            <a className="uppercase text-xl-semi">0X</a>
           </Link>
         </div>
-        <div className="text-small-regular grid grid-cols-2 gap-x-16">
+        <div className="grid grid-cols-2 text-small-regular gap-x-16">
           <div className="flex flex-col gap-y-2">
             <span className="text-base-semi">Collections</span>
             <ul
@@ -65,9 +65,9 @@ const FooterNav = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col-reverse gap-y-4 justify-center xsmall:items-center xsmall:flex-row xsmall:items-end xsmall:justify-between">
-        <span className="text-xsmall-regular text-gray-500">
-          © Copyright 2022 ACME
+      <div className="flex flex-col-reverse justify-center gap-y-4 xsmall:items-center xsmall:flex-row xsmall:items-end xsmall:justify-between">
+        <span className="text-gray-500 text-xsmall-regular">
+          © Copyright 2022 0X
         </span>
         <div className="min-w-[316px] flex xsmall:justify-end">
           <CountrySelect />

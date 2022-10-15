@@ -1,14 +1,21 @@
 import { Payment, PaymentStatus } from "@medusajs/medusa"
+import { SetStateAction, useEffect, useState } from "react"
+import Spinner from "@modules/common/icons/spinner"
 
 type PaymentDetailsProps = {
   payments: Payment[]
   paymentStatus: PaymentStatus
+  paymentCrypto: any
 }
 
-const PaymentDetails = ({ payments, paymentStatus }: PaymentDetailsProps) => {
+const PaymentDetails = ({
+  payments,
+  paymentStatus,
+  paymentCrypto,
+}: PaymentDetailsProps) => {
   return (
     <div>
-      <h2 className="text-base-semi">Payment</h2>
+      <h2 className="text-base-semi dark:text-white">Payment</h2>
       <div className="my-2">
         {payments.map((p) => {
           switch (p.provider_id) {
@@ -17,7 +24,7 @@ const PaymentDetails = ({ payments, paymentStatus }: PaymentDetailsProps) => {
             case "paypal":
               return <PayPalDetails key={p.id} />
             case "manual":
-              return <TestDetails key={p.id} />
+              return <CryptoDetails key={p.id} cryptoInfos={paymentCrypto} />
             default:
               return null
           }
@@ -30,7 +37,9 @@ const PaymentDetails = ({ payments, paymentStatus }: PaymentDetailsProps) => {
 const PayPalDetails = () => {
   return (
     <div className="flex flex-col text-base-regular">
-      <span className="text-small-regular text-gray-700">PayPal</span>
+      <span className="text-gray-700 dark:text-gray-400 text-small-regular">
+        PayPal
+      </span>
       <span>PayPal payment</span>
     </div>
   )
@@ -46,7 +55,7 @@ const StripeDetails = ({ payment }: { payment: Payment }) => {
 
   return (
     <div className="flex flex-col text-base-regular">
-      <span className="text-small-regular text-gray-700">
+      <span className="text-gray-700 text-small-regular">
         {card.brand.substring(0, 1).toUpperCase()}
         {card.brand.substring(1)}
       </span>
@@ -59,11 +68,49 @@ const StripeDetails = ({ payment }: { payment: Payment }) => {
   )
 }
 
-const TestDetails = () => {
+const CryptoDetails = (cryptoInfos: { cryptoInfos: SetStateAction<undefined> }) => {
+  const [details, setDetails] = useState()
+  useEffect(() => {
+    {
+      cryptoInfos.cryptoInfos != undefined
+        ? setDetails(cryptoInfos.cryptoInfos)
+        : ""
+    }
+  })
   return (
-    <div className="flex flex-col text-base-regular">
-      <span className="text-small-regular text-gray-700">Test</span>
-      <span>Test payment using medusa-payment-manual</span>
+    <div className="flex flex-col w-full h-full text-base-regular">
+      {details ? (
+        <>
+          <span className="text-gray-700 dark:text-gray-200 text-medium-regular">
+            Hash
+          </span>
+          <span className="overflow-hidden text-[10px] text-gray-700 dark:text-gray-400">
+            {details ? details[1] : ""}
+          </span>
+          <span className="text-gray-700 dark:text-gray-200 text-medium-regular">
+            Network{" "}
+          </span>
+          <span className="overflow-hidden text-gray-700 dark:text-gray-400 text-small-regular">
+            {details ? details[0] : ""}
+          </span>
+          <span className="text-gray-700 dark:text-gray-200 text-medium-regular">
+            Currency{" "}
+          </span>
+          <span className="overflow-hidden text-gray-700 dark:text-gray-400 text-small-regular">
+            {details ? details[3] : ""}
+          </span>
+          <span className="text-gray-700 dark:text-gray-200 text-medium-regular">
+            Value{" "}
+          </span>
+            <span className="overflow-hidden text-gray-700 dark:text-gray-400 text-small-regular">
+              {details ? details[2] : ""}
+            </span>
+        </>
+      ) : (
+        <div className="w-auto justify-centertext-center pt-[20%] items-center mx-auto">
+          <Spinner />
+        </div>
+      )}
     </div>
   )
 }

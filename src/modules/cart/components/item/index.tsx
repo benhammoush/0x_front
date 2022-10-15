@@ -16,11 +16,11 @@ const Item = ({ item, region }: ItemProps) => {
   const { updateItem, deleteItem } = useStore()
 
   return (
-    <div className="grid grid-cols-[122px_1fr] gap-x-4">
+    <div className="grid  grid-cols-[122px_1fr] gap-x-4">
       <div className="w-[122px]">
         <Thumbnail thumbnail={item.thumbnail} size="full" />
       </div>
-      <div className="text-base-regular flex flex-col gap-y-8">
+      <div className="flex flex-col text-base-regular gap-y-8">
         <div className="flex items-start justify-between">
           <div className="flex flex-col">
             <span>{item.title}</span>
@@ -48,10 +48,10 @@ const Item = ({ item, region }: ItemProps) => {
               })}
           </NativeSelect>
         </div>
-        <div className="flex items-end justify-between text-small-regular flex-1">
+        <div className="flex items-end justify-between flex-1 text-small-regular">
           <div>
             <button
-              className="flex items-center gap-x-1 text-gray-500"
+              className="flex items-center text-gray-500 dark:text-gray-400 gap-x-1"
               onClick={() => deleteItem(item.id)}
             >
               <Trash size={14} />

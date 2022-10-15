@@ -1,5 +1,8 @@
+import { Transition } from "@headlessui/react"
+import { MEDUSA_BACKEND_URL } from "@lib/config"
 import { useCheckout } from "@lib/context/checkout-context"
 import { PaymentSession } from "@medusajs/medusa"
+import Medusa from "@medusajs/medusa-js"
 import Button from "@modules/common/components/button"
 import Spinner from "@modules/common/icons/spinner"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
@@ -7,7 +10,10 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
 import { useCart } from "medusa-react"
 import React, { useEffect, useState } from "react"
+import * as data from "../payment-crypto/json/datas.json"
+import { utils } from "ethers"
 
+const medusa = new Medusa({ baseUrl: MEDUSA_BACKEND_URL, maxRetries: 3 })
 type PaymentButtonProps = {
   paymentSession?: PaymentSession | null
 }
@@ -48,7 +54,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ paymentSession }) => {
         <StripePaymentButton session={paymentSession} notReady={notReady} />
       )
     case "manual":
-      return <ManualTestPaymentButton notReady={notReady} />
+      return <CryptoPaymentButton notReady={notReady} />
     case "paypal":
       return (
         <PayPalPaymentButton notReady={notReady} session={paymentSession} />
@@ -154,7 +160,7 @@ const StripePaymentButton = ({
         {submitting ? <Spinner /> : "Checkout"}
       </Button>
       {errorMessage && (
-        <div className="text-red-500 text-small-regular mt-2">
+        <div className="mt-2 text-red-500 text-small-regular">
           {errorMessage}
         </div>
       )}
@@ -208,7 +214,7 @@ const PayPalPaymentButton = ({
       }}
     >
       {errorMessage && (
-        <span className="text-rose-500 mt-4">{errorMessage}</span>
+        <span className="mt-4 text-rose-500">{errorMessage}</span>
       )}
       <PayPalButtons
         style={{ layout: "horizontal" }}
@@ -220,23 +226,346 @@ const PayPalPaymentButton = ({
   )
 }
 
-const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
+const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
   const [submitting, setSubmitting] = useState(false)
-
   const { onPaymentCompleted } = useCheckout()
+  const { ethers } = require("ethers")
+  const cart = useCart()  
+  const [alertText, setAlertText] = useState()
+  const [alertType, setAlertType] = useState("info")
+  const [isShowing, setIsShowing] = useState(false)
+  const datas = data
 
-  const handlePayment = () => {
+  /**
+   *
+   */
+  async function checkWeb3Ready() {
+    try {
+      setIsShowing(true)
+      setAlertType("info")
+      setAlertText("waiting for wallet")
+      const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
+      const accounts = await provider
+        .send("eth_requestAccounts", [])
+        .catch((err) => isError(err.toString()))
+      {
+        accounts ? sendPayment() : ""
+      }
+    } catch (error) {
+      isError("Missing wallet extension")
+    } finally {
+    }
+  }
+
+  /**
+   *
+   */
+  async function sendPayment() {
+    setAlertText("waiting user confirmation")
+
+    const clientNetwork =
+      datas.supportednetworks[
+        document.getElementById("network").getAttribute("networkIndex")
+      ]
+    const clientCurrency =
+      datas.supportednetworks[
+        document.getElementById("network").getAttribute("networkIndex")
+      ].accept[
+        document.getElementById("currency").getAttribute("currencyIndex")
+      ]
+    const isNative =
+      datas.supportednetworks[
+        document.getElementById("network").getAttribute("networkIndex")
+      ].accept[
+        document.getElementById("currency").getAttribute("currencyIndex")
+      ].isnative
+    const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
+    const accounts = await provider
+      .send("eth_requestAccounts", [])
+      .catch((err) => isError(err.toString()))
+    const walletNetwork = await provider.getNetwork()
+    const signer = provider.getSigner()
+
+    {
+      clientNetwork.chainId != walletNetwork.chainId
+        ? await changeNetwork(
+            clientNetwork.name,
+            clientNetwork.chainId,
+            clientNetwork.rpc
+          )
+        : isNative
+        ? nativeTransfert()
+        : externalTransfert()
+    }
+
+    /**
+     *
+     * @param network
+     * @param id
+     * @param rpc
+     */
+    async function changeNetwork(network: any, id: any, rpc: any) {
+      setIsShowing(true)
+      setAlertType("info")
+      setAlertText("Switching network")
+      var idhex = utils.hexValue(id)
+      try {
+        await ethereum.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: idhex }],
+        })
+        {
+          isNative ? nativeTransfert() : externalTransfert()
+        }
+      } catch (switchError) {
+        if (switchError.code === 4902) {
+          try {
+            await ethereum.request({
+              method: "wallet_addEthereumChain",
+              params: [
+                {
+                  chainId: idhex,
+                  chainName: network,
+                  rpcUrls: [rpc] /* ... */,
+                },
+              ],
+            })
+          } catch (addError) {}
+        }
+        isError(switchError.message)
+      }
+    }
+
+    /**
+     *
+     */
+    async function nativeTransfert() {
+      setIsShowing(true)
+      setAlertText("Preparing transaction")
+      const tx = {
+        from: accounts[0],
+        to: datas.owner,
+        value: ethers.utils.parseEther(
+          localStorage.getItem(clientCurrency.symb)
+        ),
+        nonce: await provider.getTransactionCount(accounts[0], "latest"),
+        gasLimit: ethers.utils.hexlify(21000),
+        gasPrice: ethers.utils.hexlify(parseInt(await provider.getGasPrice())),
+      }
+      signer
+        .sendTransaction(tx)
+        .then(
+          (transaction: { value: any; hash: any; from: any; to: string }) => {
+            let paymentState = true
+            {
+              Number(transaction.value) ==
+              Number(
+                ethers.utils.parseEther(
+                  localStorage.getItem(clientCurrency.symb)
+                )
+              )
+                ? ""
+                : (isError("Invalid value sent, order didn't proceed"),
+                  (paymentState = false))
+            }
+            {
+              transaction.to == data.owner
+                ? ""
+                : (isError("Invalid address, order didn't proceed"),
+                  (paymentState = false))
+            }
+            {
+              paymentState
+                ? (medusa.carts.update(cart.cart.id, {
+                    context: {
+                      CryptoPayment: [
+                        clientNetwork.name,
+                        transaction.hash,
+                        Number(transaction.value) / 1000000000000000000,
+                        clientCurrency.symb,
+                        transaction.from,
+                        transaction.to,
+                      ],
+                    },
+                  }),
+                  validatePayment())
+                : ""
+            }
+          }
+        )
+        .catch((e) => {
+          var error = e.toString()
+          isError(error.substring(0, 32))
+        })
+    }
+
+    /**
+     *
+     */
+    async function externalTransfert() {
+      setIsShowing(true)
+      setAlertType("info")
+      setAlertText("Waiting approval")
+      var contract = new ethers.Contract(
+        clientCurrency.contract,
+        clientCurrency.abi,
+        signer
+      )
+      {
+        contract
+          ? contract
+              .approve(
+                datas.owner,
+                ethers.utils.parseEther(
+                  localStorage.getItem(clientCurrency.symb)
+                )
+              )
+              .then(function () {
+                contract
+                  .transfer(
+                    datas.owner,
+                    ethers.utils.parseEther(
+                      localStorage.getItem(clientCurrency.symb)
+                    )
+                  )
+                  .then(
+                    (transaction: {
+                      value: any
+                      hash: any
+                      from: any
+                      to: string
+                    }) => {
+                      let paymentState = true
+                      let data = transaction.data
+                      data = ethers.utils.defaultAbiCoder.decode(
+                        ["address", "uint256"],
+                        ethers.utils.hexDataSlice(data, 4)
+                      )
+                      let dataTo = data[0]
+                      let dataValue = Number(data[1])
+                      {
+                        Number(dataValue) ==
+                        Number(
+                          ethers.utils.parseEther(
+                            localStorage.getItem(clientCurrency.symb)
+                          )
+                        )
+                          ? ""
+                          : (isError(
+                              "Invalid value sent, order didn't proceed"
+                            ),
+                            (paymentState = false))
+                      }
+                      {
+                        dataTo == datas.owner
+                          ? ""
+                          : (isError("Invalid address, order didn't proceed"),
+                            (paymentState = false))
+                      }
+                      {
+                        paymentState
+                          ? (medusa.carts.update(cart.cart.id, {
+                              context: {
+                                CryptoPayment: [
+                                  clientNetwork.name,
+                                  transaction.hash,
+                                  Number(dataValue) / 1000000000000000000,
+                                  clientCurrency.symb,
+                                  transaction.from,
+                                  dataTo,
+                                ],
+                              },
+                            }),
+                            validatePayment())
+                          : ""
+                      }
+                    }
+                  )
+              })
+              .catch((e) => {
+                var error = e.toString()
+                isError(error.substring(0, 32))
+              })
+          : ""
+      }
+    }
+  }
+
+  /**
+   *
+   */
+  const validatePayment = () => {
+    setIsShowing(true)
+    setAlertType("info")
+    setAlertText("Transaction confirmed")
     setSubmitting(true)
-
     onPaymentCompleted()
-
     setSubmitting(false)
+    setTimeout(() => {
+      setIsShowing(false)
+    }, 5000)
+  }
+
+  /**
+   *
+   * @param error
+   */
+  const isError = (error) => {
+    setIsShowing(true)
+    setAlertText(error)
+    setAlertType("error")
+    setTimeout(() => {
+      setIsShowing(false)
+    }, 5000)
   }
 
   return (
-    <Button disabled={submitting || notReady} onClick={handlePayment}>
-      {submitting ? <Spinner /> : "Checkout"}
-    </Button>
+    <>
+      <Button disabled={submitting || notReady} onClick={checkWeb3Ready}>
+        {submitting ? <Spinner /> : "Checkout"}
+      </Button>
+      <Transition
+        show={isShowing}
+        enter="transition-opacity duration-750"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-750"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <div
+          className="fixed inline-flex items-center gap-5 px-6 py-3 mb-3 text-gray-800 duration-300 border rounded text-md dark:text-gray-500 dark:bg-mediumbg bg-ui-light dark:border-darkborder bottom-10 right-10 w-50"
+          role="alert"
+        >
+          {alertType == "info" && (
+            <div
+              className="animate-spin inline-block w-4 h-4 border-[3px] border-current border-t-transparent text-gray-400 rounded-full"
+              role="status"
+              aria-label="loading"
+            >
+              <span className="sr-only">Loading...</span>
+            </div>
+          )}
+          {alertType == "error" && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="red"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+              />
+            </svg>
+          )}
+          <div>{alertText}</div>
+        </div>
+      </Transition>
+    </>
   )
 }
 

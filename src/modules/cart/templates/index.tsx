@@ -17,22 +17,22 @@ const CartTemplate = () => {
   }
 
   return (
-    <div className="bg-gray-50 py-12">
+    <div className="py-12 bg-gray-50 dark:bg-darkbg lg:h-screen">
       <div className="content-container">
         {cart.items.length ? (
           <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-x-8">
-            <div className="flex flex-col bg-white p-6 gap-y-6">
+            <div className="flex flex-col p-6 bg-white rounded-lg dark:border-darkborder dark:border dark:bg-mediumbg gap-y-6">
               {!customer && <SignInPrompt />}
               <ItemsTemplate region={cart?.region} items={items} />
             </div>
             <div className="relative">
-              <div className="flex flex-col gap-y-8 sticky top-12">
+              <div className="sticky flex flex-col gap-y-8 top-12">
                 {cart && cart.region && (
                   <>
-                    <div className="bg-white p-6">
+                    <div className="p-6 bg-white rounded-lg dark:bg-mediumbg dark:border-darkborder dark:border">
                       <Summary cart={cart} />
                     </div>
-                    <div className="bg-white p-6">
+                    <div className="p-6 bg-white rounded-lg dark:bg-mediumbg dark:border-darkborder dark:border">
                       <DiscountCode cart={cart} />
                     </div>
                   </>

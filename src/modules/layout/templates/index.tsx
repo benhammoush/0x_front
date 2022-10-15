@@ -4,9 +4,9 @@ import React from "react"
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <div>
+    <div className="dark:bg-darkbg">
       <Nav />
-      <main className="relative">{children}</main>
+      <main className="relative dark:bg-darkbg">{children}</main>
       <Footer />
     </div>
   )

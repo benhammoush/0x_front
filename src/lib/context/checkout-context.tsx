@@ -312,6 +312,7 @@ export const CheckoutProvider = ({ children }: CheckoutProviderProps) => {
    * Method to complete the checkout process. This is called when the user clicks the "Complete Checkout" button.
    */
   const onPaymentCompleted = () => {
+    
     complete(undefined, {
       onSuccess: ({ data }) => {
         resetCart()

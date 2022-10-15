@@ -15,14 +15,14 @@ const Overview = ({ orders, customer }: OverviewProps) => {
   return (
     <div>
       <div className="small:hidden">
-        <div className="text-xl-semi mb-4 px-8">
+        <div className="px-8 mb-4 text-xl-semi">
           Hello {customer?.first_name}
         </div>
         <div className="text-base-regular">
           <ul>
             <li>
               <Link href="/account/profile">
-                <a className="flex items-center justify-between py-4 border-b border-gray-200 px-8">
+                <a className="flex items-center justify-between px-8 py-4 border-b border-gray-200">
                   <div className="flex items-center gap-x-2">
                     <User size={16} />
                     <span>Profile</span>
@@ -33,7 +33,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
             </li>
             <li>
               <Link href="/account/addresses">
-                <a className="flex items-center justify-between py-4 border-b border-gray-200 px-8">
+                <a className="flex items-center justify-between px-8 py-4 border-b border-gray-200">
                   <div className="flex items-center gap-x-2">
                     <MapPin size={16} />
                     <span>Addresses</span>
@@ -44,7 +44,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
             </li>
             <li>
               <Link href="/account/orders">
-                <a className="flex items-center justify-between py-4 border-b border-gray-200 px-8">
+                <a className="flex items-center justify-between px-8 py-4 border-b border-gray-200">
                   <div className="flex items-center gap-x-2">
                     <Package size={16} />
                     <span>Orders</span>
@@ -58,23 +58,23 @@ const Overview = ({ orders, customer }: OverviewProps) => {
       </div>
 
       <div className="hidden small:block">
-        <div className="text-xl-semi flex justify-between items-start mb-4">
+        <div className="flex items-start justify-between mb-4 text-xl-semi">
           <span>Hello {customer?.first_name}</span>
-          <span className="text-small-regular text-gray-700">
+          <span className="text-gray-700 dark:text-gray-400 text-small-regular">
             Signed in as:{" "}
             <span className="font-semibold">{customer?.email}</span>
           </span>
         </div>
         <div className="flex flex-col py-8 border-t border-gray-200">
-          <div className="flex flex-col gap-y-4 h-full col-span-1 row-span-2 flex-1">
-            <div className="flex items-start gap-x-16 mb-6">
+          <div className="flex flex-col flex-1 h-full col-span-1 row-span-2 gap-y-4">
+            <div className="flex items-start mb-6 gap-x-16">
               <div className="flex flex-col gap-y-4">
                 <h3 className="text-large-semi">Profile</h3>
                 <div className="flex items-end gap-x-2">
-                  <span className="text-3xl-semi leading-none">
+                  <span className="leading-none text-3xl-semi">
                     {getProfileCompletion(customer)}%
                   </span>
-                  <span className="uppercase text-base-regular text-gray-500">
+                  <span className="text-gray-500 uppercase text-base-regular">
                     Completed
                   </span>
                 </div>
@@ -83,10 +83,10 @@ const Overview = ({ orders, customer }: OverviewProps) => {
               <div className="flex flex-col gap-y-4">
                 <h3 className="text-large-semi">Addresses</h3>
                 <div className="flex items-end gap-x-2">
-                  <span className="text-3xl-semi leading-none">
+                  <span className="leading-none text-3xl-semi">
                     {customer?.shipping_addresses?.length || 0}
                   </span>
-                  <span className="uppercase text-base-regular text-gray-500">
+                  <span className="text-gray-500 uppercase text-base-regular">
                     Saved
                   </span>
                 </div>
@@ -104,8 +104,8 @@ const Overview = ({ orders, customer }: OverviewProps) => {
                       <li key={order.id}>
                         <Link href={`/order/details/${order.id}`}>
                           <a>
-                            <div className="bg-gray-50 flex justify-between items-center p-4">
-                              <div className="grid grid-cols-3 grid-rows-2 text-small-regular gap-x-4 flex-1">
+                            <div className="flex items-center justify-between p-4 bg-gray-50">
+                              <div className="grid flex-1 grid-cols-3 grid-rows-2 text-small-regular gap-x-4">
                                 <span className="font-semibold">
                                   Date placed
                                 </span>
