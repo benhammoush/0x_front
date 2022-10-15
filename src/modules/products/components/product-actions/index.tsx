@@ -43,19 +43,19 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   /**
    *  this function get datas from canvas
    */
-  const AddCustomToCart = () => {
+  const AddCustomToCart = (variant : any) => {
     setIsShowing(true)
     setAlertText("adding custom product to cart...")
     setAlertType("info")
-    html2canvas(document.querySelector("#canvafull"), {
+    html2canvas(document.querySelector("#canvafull")!, {
       allowTaint: true,
     }).then(async (canvas) => {
       if (
-        localStorage.getItem("nftsArray")?.length > 0 &&
+        localStorage.getItem("nftsArray")?.length! > 0 &&
         variant.id.length > 0
       ) {
         const url = canvas.toDataURL("image/jpeg", 0.5)
-        const nfts = JSON.parse(localStorage.getItem("nftsArray"))
+        const nfts = JSON.parse(localStorage.getItem("nftsArray")!)
         sendLink(url, nfts)
       } else {
         setAlertText("No Nfts added or size not specified !")
@@ -71,13 +71,14 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
    *  this function adds the custom product to cart with parameters neccessary
    */
   const sendLink = (url: string, nfts: string | null) => {
-    var variant_id = variant.id
+    var variant_id = variant?.id
+    if (cart.cart && variant_id ) {
     medusa.carts.lineItems.create(cart.cart.id, {
       variant_id,
       quantity: 1,
       metadata: { model: url, sources: nfts },
-    })
-    console.log(cart.cart.id)
+    })   
+  }
     window.location.reload()
     localStorage?.setItem("nftsArray", "")
   }

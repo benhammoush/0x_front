@@ -8,6 +8,7 @@ import {
 import { useCart } from "medusa-react"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import * as data from "../payment-crypto/json/datas.json"
+import Image from "next/image"
 
 const PaymentCrypto = () => {
   useEffect(() => {
@@ -74,34 +75,34 @@ const PaymentCrypto = () => {
    *
    * @param carttotal
    */
-  const calculatePrices = (carttotal: number | undefined) => {
+  const calculatePrices = (carttotal: number | any) => {
     carttotal = carttotal / 100
-    let totaleth = carttotal / localStorage.getItem("ethprice")
-    localStorage.setItem("ETH", parseFloat(totaleth).toFixed(5))
-    let totalusdt = carttotal / localStorage.getItem("usdtprice")
-    localStorage.setItem("USDT", parseFloat(totalusdt).toFixed(2))
-    let totalavax = carttotal / localStorage.getItem("avaxprice")
-    localStorage.setItem("AVAX", parseFloat(totalavax).toFixed(3))
-    let totaljeur = carttotal / localStorage.getItem("jeurprice")
-    localStorage.setItem("JEUR", parseFloat(totaljeur).toFixed(2))
-    let totalmatic = carttotal / localStorage.getItem("maticprice")
-    localStorage.setItem("MATIC", parseFloat(totalmatic).toFixed(3))
-    let totalusdc = carttotal / localStorage.getItem("usdcprice")
-    localStorage.setItem("USDC", parseFloat(totalusdc).toFixed(2))
-    let totaldai = carttotal / localStorage.getItem("daiprice")
-    localStorage.setItem("DAI", parseFloat(totaldai).toFixed(2))
-    let totalbnb = carttotal / localStorage.getItem("bnbprice")
-    localStorage.setItem("BNB", parseFloat(totalbnb).toFixed(2))
+    let totaleth = carttotal / Number(localStorage.getItem("ethprice")!)
+    localStorage.setItem("ETH", parseFloat(totaleth.toString()).toFixed(5))
+    let totalusdt = carttotal / Number(localStorage.getItem("usdtprice")!)
+    localStorage.setItem("USDT", parseFloat(totalusdt.toString()).toFixed(2))
+    let totalavax = carttotal / Number(localStorage.getItem("avaxprice")!)
+    localStorage.setItem("AVAX", parseFloat(totalavax.toString()).toFixed(3))
+    let totaljeur = carttotal / Number(localStorage.getItem("jeurprice")!)
+    localStorage.setItem("JEUR", parseFloat(totaljeur.toString()).toFixed(2))
+    let totalmatic = carttotal / Number(localStorage.getItem("maticprice")!)
+    localStorage.setItem("MATIC", parseFloat(totalmatic.toString()).toFixed(3))
+    let totalusdc = carttotal / Number(localStorage.getItem("usdcprice")!)
+    localStorage.setItem("USDC", parseFloat(totalusdc.toString()).toFixed(2))
+    let totaldai = carttotal / Number(localStorage.getItem("daiprice")!)
+    localStorage.setItem("DAI", parseFloat(totaldai.toString()).toFixed(2))
+    let totalbnb = carttotal / Number(localStorage.getItem("bnbprice")!)
+    localStorage.setItem("BNB", parseFloat(totalbnb.toString()).toFixed(2))
   }
 
   const updateSelection = (
     index1: string | SetStateAction<number>,
     index2: string | SetStateAction<number>
   ) => {
-    setId_1(index1)
-    setId_2(index2)
-    document.getElementById("network")?.setAttribute("networkIndex", index1)
-    document.getElementById("currency")?.setAttribute("currencyIndex", index2)
+    setId_1(Number(index1))
+    setId_2(Number(index2))
+    document.getElementById("network")?.setAttribute("networkIndex", index1.toString())
+    document.getElementById("currency")?.setAttribute("currencyIndex", index2.toString())
   }
 
   const { cart } = useCart()
@@ -136,9 +137,10 @@ const PaymentCrypto = () => {
                 <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium border rounded-md bg-ui-light dark:bg-mediumbg dark:text-white dark:border-darkborder focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   <div className="grid grid-cols-4 gap-2 divide-x divide-gray-400 dark:divide-gray-600">
                     <div>
-                      <img
+                      <Image
                         src={supportednetworks[id_1].icon}
                         className="justify-center w-auto h-5"
+                        alt=""
                       />
                     </div>
                     <div className="col-span-3">
@@ -164,7 +166,7 @@ const PaymentCrypto = () => {
                   <div className="grid grid-cols-2 px-1 py-1 gap-x-5">
                     {supportednetworks.map((key, index) => {
                       return (
-                        <div>
+                        <div key={id_1}>
                           <Menu.Item>
                             {({ active }) => (
                               <button
@@ -175,9 +177,10 @@ const PaymentCrypto = () => {
                               >
                                 <div className="grid grid-cols-4 gap-2 text-gray-500 divide-x divide-gray-400 hover:text-gray-900 hover:dark:text-white dark:divide-gray-600">
                                   <div>
-                                    <img
+                                    <Image
                                       src={key.icon}
                                       className="justify-center w-auto h-5"
+                                      alt=""
                                     />
                                   </div>
                                   <div className="col-span-3">
@@ -207,9 +210,10 @@ const PaymentCrypto = () => {
                 <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium border rounded-md bg-ui-light dark:bg-mediumbg dark:text-white dark:border-darkborder focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   <div className="grid grid-cols-4 gap-2 divide-x divide-gray-400 hover:text-gray-900 hover:dark:text-white dark:divide-gray-600">
                     <div>
-                      <img
+                      <Image
                         src={supportednetworks[id_1].accept[id_2].icon}
                         className="justify-center w-auto h-5"
+                        alt=""
                       />
                     </div>
                     <div className="col-span-3">
@@ -237,7 +241,7 @@ const PaymentCrypto = () => {
                   <div className="px-1 py-1 ">
                     {supportednetworks[id_1].accept.map((key, index) => {
                       return (
-                        <div>
+                        <div key={id_1}>
                           <Menu.Item>
                             {({ active }) => (
                               <button
@@ -248,9 +252,10 @@ const PaymentCrypto = () => {
                               >
                                 <div className="grid w-full grid-cols-4 gap-2 text-gray-500 divide-x divide-gray-400 hover:text-gray-900 hover:dark:text-white dark:divide-gray-600">
                                   <div>
-                                    <img
+                                    <Image
                                       src={key.icon}
                                       className="justify-center w-auto h-5"
+                                      alt=""
                                     />
                                   </div>
                                   <div className="w-full col-span-3">

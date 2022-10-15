@@ -12,14 +12,16 @@ import Button from "@modules/common/components/button"
 import { ethers } from "ethers"
 import { Transition, Dialog } from "@headlessui/react"
 import Spinner from "@modules/common/icons/spinner"
-
+import Image from "next/image"
 
 type ProductTemplateProps = {
   product: Product
 }
 
+declare var window: any
+
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
-  const [assets, setassets] = useState([""])
+  const [assets, setassets] = useState<any>()
   const [assetsnb, setassetsnb] = useState(0)
   const [loading, isLoading] = useState(false)
   const [canvas, setCanvas] = useState<any>()
@@ -64,7 +66,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
           cornerColor: "white",
           cornerSize: 6,
         })
-        myImg.set("clipPath", roundedCorners(myImg, 5))
         myImg.objectCaching = false
         myImg.on("mousedblclick", function () {
           canvas.remove(myImg)
@@ -77,28 +78,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
     )
   }
 
-  const roundedCorners = (
-    fabricObject: {
-      width: number
-      height: number
-      scaleX: number
-      scaleY: number
-    },
-    cornerRadius: number
-  ) =>
-    new fabric.Rect({
-      width: fabricObject.width,
-      height: fabricObject.height,
-      rx: cornerRadius / fabricObject.scaleX,
-      ry: cornerRadius / fabricObject.scaleY,
-      left: -fabricObject.width / 2,
-      top: -fabricObject.height / 2,
-    })
 
   const getCanvasImageLinks = () => {
     let nftArray = [canvas.getObjects().length]
     let i = 0
-    canvas.getObjects().forEach((element) => {
+    canvas.getObjects().forEach((element: { _element: { src: any } }) => {
       nftArray[i] = element._element.src
       i++
     })
@@ -153,9 +137,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
             nextpage = "lastpage"
           }
           nftarray.push(...res.nfts)
-        } catch (err) {
+        } catch (err: any) {
           isLoading(false)
-          setAlertText(toString(err))
+          setAlertText(err)
         }
         setassetsnb(nftarray.length)
         setassets(nftarray)
@@ -228,7 +212,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                         )}
                         {assetsnb > 0 && (
                           <div className="grid justify-center max-w-xl grid-cols-3 gap-5 mx-5 my-5 text-gray-400 min-w-4xl">
-                            {assets.map((key, index) => {
+                            {assets.map((index: React.Key | any) => {
                               if (
                                 assets[index].previews?.image_medium_url != null
                               ) {
@@ -240,10 +224,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                         assets[index].previews?.image_large_url
                                       )
                                     }
+                                    key={index}
                                   >
                                     {assets[index].chain == "ethereum" ? (
                                       <figure>
-                                        <img
+                                        <Image
                                           src={
                                             assets[index].previews
                                               ?.image_small_url
@@ -257,7 +242,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                     )}
                                     {assets[index].chain == "polygon" ? (
                                       <figure>
-                                        <img
+                                        <Image
                                           src={
                                             assets[index].previews
                                               ?.image_small_url
@@ -271,7 +256,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                     )}
                                     {assets[index].chain == "avalanche" ? (
                                       <figure>
-                                        <img
+                                        <Image
                                           src={
                                             assets[index].previews
                                               ?.image_small_url
@@ -285,7 +270,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                     )}
                                     {assets[index].chain == "arbitrum" ? (
                                       <figure>
-                                        <img
+                                        <Image
                                           src={
                                             assets[index].previews
                                               ?.image_small_url

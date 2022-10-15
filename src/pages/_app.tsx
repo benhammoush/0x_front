@@ -19,7 +19,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
         client: queryClient,
       }}
     >
-      <Hydrate state={pageProps.dehydratedState}>
+      <Hydrate state={pageProps}>
         <CartDropdownProvider>
           <MobileMenuProvider>
             <CartProvider>

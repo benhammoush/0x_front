@@ -15,15 +15,15 @@ type ItemsProps = {
 
 const Items = ({ items, region, cartId }: ItemsProps) => {
   const enrichedItems = useEnrichedLineItems(items, cartId)
-  const openModel = (url) => {
+  const openModel = (url: any) => {
     var image = new Image();
         image.src = url;
         var w = window.open("");
-        w.document.write(image.outerHTML);
+        w?.document.write(image.outerHTML);
   }
-  const openNfts = (nfts) => {
+  const openNfts = (nfts: any) => {
     var i = 0
-    nfts.forEach(element => {
+    nfts?.forEach((element: string | URL | undefined) => {
       window.open(element, '_blank' + i)
       i++;
     });

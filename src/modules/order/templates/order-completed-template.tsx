@@ -19,7 +19,7 @@ type OrderCompletedTemplateProps = {
 const OrderCompletedTemplate: React.FC<OrderCompletedTemplateProps> = ({
   order,
 }) => {
-  const [CryptoPayment, setCryptoPayment] = useState()
+  const [CryptoPayment, setCryptoPayment] = useState<any>()
   const [bool, setBool] = useState(true)
   var cartId = order.cart_id
 

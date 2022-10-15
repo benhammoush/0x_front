@@ -13,6 +13,8 @@ import React, { useEffect, useState } from "react"
 import * as data from "../payment-crypto/json/datas.json"
 import { utils } from "ethers"
 
+declare var window: any
+
 const medusa = new Medusa({ baseUrl: MEDUSA_BACKEND_URL, maxRetries: 3 })
 type PaymentButtonProps = {
   paymentSession?: PaymentSession | null
@@ -230,8 +232,8 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
   const [submitting, setSubmitting] = useState(false)
   const { onPaymentCompleted } = useCheckout()
   const { ethers } = require("ethers")
-  const cart = useCart()  
-  const [alertText, setAlertText] = useState()
+  const cart = useCart()
+  const [alertText, setAlertText] = useState<any>()
   const [alertType, setAlertType] = useState("info")
   const [isShowing, setIsShowing] = useState(false)
   const datas = data
@@ -247,7 +249,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
       const accounts = await provider
         .send("eth_requestAccounts", [])
-        .catch((err) => isError(err.toString()))
+        .catch((err: { toString: () => any }) => isError(err.toString()))
       {
         accounts ? sendPayment() : ""
       }
@@ -262,27 +264,25 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
    */
   async function sendPayment() {
     setAlertText("waiting user confirmation")
+    let docelem1 = document.getElementById("network")
+    let docelem2 = document.getElementById("currency")
 
-    const clientNetwork =
-      datas.supportednetworks[
-        document.getElementById("network").getAttribute("networkIndex")
-      ]
+    let networkIndex = docelem1?.getAttribute("networkIndex") || 1
+    let currencyIndex = docelem2?.getAttribute("currencyIndex") || 1
+
+    const clientNetwork = datas.supportednetworks[Number(networkIndex)]
     const clientCurrency =
-      datas.supportednetworks[
-        document.getElementById("network").getAttribute("networkIndex")
-      ].accept[
-        document.getElementById("currency").getAttribute("currencyIndex")
+      datas.supportednetworks[Number(networkIndex)].accept[
+        Number(currencyIndex)
       ]
     const isNative =
-      datas.supportednetworks[
-        document.getElementById("network").getAttribute("networkIndex")
-      ].accept[
-        document.getElementById("currency").getAttribute("currencyIndex")
+      datas.supportednetworks[Number(networkIndex)].accept[
+        Number(currencyIndex)
       ].isnative
     const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
     const accounts = await provider
       .send("eth_requestAccounts", [])
-      .catch((err) => isError(err.toString()))
+      .catch((err: { toString: () => any }) => isError(err.toString()))
     const walletNetwork = await provider.getNetwork()
     const signer = provider.getSigner()
 
@@ -310,17 +310,17 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
       setAlertText("Switching network")
       var idhex = utils.hexValue(id)
       try {
-        await ethereum.request({
+        await window.ethereum.request({
           method: "wallet_switchEthereumChain",
           params: [{ chainId: idhex }],
         })
         {
           isNative ? nativeTransfert() : externalTransfert()
         }
-      } catch (switchError) {
+      } catch (switchError: any) {
         if (switchError.code === 4902) {
           try {
-            await ethereum.request({
+            await window.ethereum.request({
               method: "wallet_addEthereumChain",
               params: [
                 {
@@ -376,24 +376,28 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
             }
             {
               paymentState
-                ? (medusa.carts.update(cart.cart.id, {
-                    context: {
-                      CryptoPayment: [
-                        clientNetwork.name,
-                        transaction.hash,
-                        Number(transaction.value) / 1000000000000000000,
-                        clientCurrency.symb,
-                        transaction.from,
-                        transaction.to,
-                      ],
+                ? {
+                    if(cart: { cart: { id: string } }) {
+                      medusa.carts.update(cart.cart.id, {
+                        context: {
+                          CryptoPayment: [
+                            clientNetwork.name,
+                            transaction.hash,
+                            Number(transaction.value) / 1000000000000000000,
+                            clientCurrency.symb,
+                            transaction.from,
+                            transaction.to,
+                          ],
+                        },
+                      }),
+                        validatePayment()
                     },
-                  }),
-                  validatePayment())
+                  }
                 : ""
             }
           }
         )
-        .catch((e) => {
+        .catch((e: { toString: () => any }) => {
           var error = e.toString()
           isError(error.substring(0, 32))
         })
@@ -430,6 +434,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                   )
                   .then(
                     (transaction: {
+                      data: any
                       value: any
                       hash: any
                       from: any
@@ -464,25 +469,29 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                       }
                       {
                         paymentState
-                          ? (medusa.carts.update(cart.cart.id, {
-                              context: {
-                                CryptoPayment: [
-                                  clientNetwork.name,
-                                  transaction.hash,
-                                  Number(dataValue) / 1000000000000000000,
-                                  clientCurrency.symb,
-                                  transaction.from,
-                                  dataTo,
-                                ],
+                          ? {
+                              if(cart: { cart: { id: string } }) {
+                                medusa.carts.update(cart.cart.id, {
+                                  context: {
+                                    CryptoPayment: [
+                                      clientNetwork.name,
+                                      transaction.hash,
+                                      Number(dataValue) / 1000000000000000000,
+                                      clientCurrency.symb,
+                                      transaction.from,
+                                      dataTo,
+                                    ],
+                                  },
+                                }),
+                                  validatePayment()
                               },
-                            }),
-                            validatePayment())
+                            }
                           : ""
                       }
                     }
                   )
               })
-              .catch((e) => {
+              .catch((e: { toString: () => any }) => {
                 var error = e.toString()
                 isError(error.substring(0, 32))
               })
@@ -510,7 +519,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
    *
    * @param error
    */
-  const isError = (error) => {
+  const isError = (error: string) => {
     setIsShowing(true)
     setAlertText(error)
     setAlertType("error")
