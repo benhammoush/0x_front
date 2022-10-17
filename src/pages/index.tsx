@@ -7,6 +7,7 @@ import { ReactElement } from "react"
 import { NextPageWithLayout } from "types/global"
 import Image from "next/image"
 
+
 const Home: NextPageWithLayout = () => {
   return (
     <>
@@ -25,8 +26,8 @@ const Home: NextPageWithLayout = () => {
                 nft friendly
               </h6>
               <p className="mb-4 text-gray-900 dark:text-white text-2xl-regular">
-            Customize clothes using NFTs.
-          </p>
+                Customize clothes using NFTs.
+              </p>
               <p className="mt-0 mb-10 text-lg leading-8 text-gray-400">
                 {" "}
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -35,41 +36,50 @@ const Home: NextPageWithLayout = () => {
             </div>
           </div>
         </div>
-        <div className="grid w-[80%] max-w-[1400px]  border mx-auto rounded-md  dark:border-darkborder overflow-hidden bg-white dark:bg-mediumbg md:grid-cols-3">
+        <div className="grid w-[80%] max-w-[1400px] h-[500px]  border mx-auto rounded-md  dark:border-darkborder overflow-hidden bg-white dark:bg-mediumbg md:grid-cols-3">
           <div className="flex flex-wrap justify-center max-w-5xl col-span-2 mx-auto text-white md:scale-75 ov drop-shadow-2xl">
             <div className="relative w-full px-4 mt-5 leading-6 text-left xl:flex-shrink-0 xl:flex-grow-0 md:mt-0">
-              <div className="relative flex h-10 items-center justify-start space-x-1.5 overflow-hidden rounded-t-xl dark:bg-darkbg bg-ui-medium">
+
+            <div className="relative w-full px-4 leading-6 text-left xl:flex-shrink-0 xl:flex-grow-0">
+              <div className="relative flex h-10 items-center justify-start space-x-1.5 overflow-hidden rounded-t-xl bg-ui-medium dark:bg-darkbg">
                 <div className="relative z-10 w-3 h-3 ml-3 bg-green-500 rounded-full dark:bg-gray-700"></div>
                 <div className="relative z-10 w-3 h-3 bg-orange-500 rounded-full dark:bg-gray-700"></div>
                 <div className="relative z-10 w-3 h-3 bg-red-500 rounded-full dark:bg-gray-700"></div>
               </div>
 
-              <Image
-                src="/exdesign.png"
-                alt=""
-                className="hidden h-auto max-w-full text-white align-middle border-none rounded-lg dark:block"
-              />
-              <Image
+              <img
                 src="/exdesignwhite.png"
                 alt=""
                 className="block h-auto max-w-full text-white align-middle border-none rounded-lg dark:hidden"
               />
+
+              <img
+                src="/exdesign.png"
+                alt=""
+                className="hidden h-auto max-w-full text-white align-middle border-none rounded-lg dark:block"
+              />
+            </div>
+
             </div>
           </div>
           <div className="flex flex-col items-start justify-center h-full py-16 pl-16 pr-16 space-y-4 saturate-80 backdrop-brightness-10 lg:py-0 lg:pr-20">
-                <h3 className="text-2xl font-semibold dark:text-white sm:text-4xl">Lorem Ipsum</h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry
-                  standard dummy text ever since the 1500s{" "}
-                </p>
-                <UnderlineLink href="/products/tshirtcustom">Try now !</UnderlineLink>
+            <h3 className="text-2xl font-semibold dark:text-white sm:text-4xl">
+              Lorem Ipsum
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-400">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry standard dummy text
+              ever since the 1500s{" "}
+            </p>
+            <UnderlineLink href="/products/tshirtcustom">
+              Try now !
+            </UnderlineLink>
           </div>
-          </div>
+        </div>
       </section>
 
-            {/* NETWORKS */}
-            <section className="box-border text-black bg-gray-50 pb-30 dark:bg-darkbg dark:text-white">
+      {/* NETWORKS */}
+      <section className="box-border text-black bg-gray-50 pb-30 dark:bg-darkbg dark:text-white">
         <div className="box-border py-12 leading-7 md:pb-20">
           <div className="relative w-full px-10 mx-auto text-gray-900 md:px-5">
             <div className="flex flex-wrap justify-center mt-0">
@@ -88,10 +98,10 @@ const Home: NextPageWithLayout = () => {
               </div>
             </div>
 
-            <div className="flex flex-wrap max-w-6xl py-5 mx-auto mt-0 bg-white border rounded-md dark:bg-mediumbg dark:border-darkborder">
+            <div className="flex flex-wrap max-w-6xl px-10 py-10 mx-auto mt-0 bg-white border rounded-lg dark:border-darkborder dark:bg-mediumbg ">
               <div className="relative flex-none w-full max-w-full px-5 mt-0 text-center md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
                 <div className="mb-4">
-                  <Image src="/Arbitrum.svg"                 alt="" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
+                  <img src="./Arbitrum.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
                 </div>
                 <h3 className="mt-0 mb-2 text-xl font-semibold tracking-normal text-black dark:text-white">
                   Arbitrum
@@ -104,7 +114,7 @@ const Home: NextPageWithLayout = () => {
 
               <div className="relative flex-none w-full max-w-full px-5 mt-0 text-center md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
                 <div className="mb-4">
-                  <Image src="/Avalanche.svg"                 alt="" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
+                  <img src="./Avalanche.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
                 </div>
                 <h3 className="mt-0 mb-2 text-xl font-semibold tracking-normal text-black dark:text-white">
                   Avalanche
@@ -117,7 +127,7 @@ const Home: NextPageWithLayout = () => {
 
               <div className="relative flex-none w-full max-w-full px-5 mt-10 text-center md:w-1/2 md:flex-none lg:mt-0 lg:w-1/3 lg:flex-none">
                 <div className="mb-4">
-                  <Image src="/Binance.svg"                 alt="" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
+                  <img src="./Binance.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
                 </div>
                 <h3 className="mt-0 mb-2 text-xl font-semibold tracking-normal text-black dark:text-white">
                   Binance Smart Chain
@@ -131,7 +141,7 @@ const Home: NextPageWithLayout = () => {
 
               <div className="relative flex-none w-full max-w-full px-5 text-center md:mt-10 md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
                 <div className="mb-4">
-                  <Image src="/Ethereum.svg"                 alt="" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
+                  <img src="./Ethereum.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
                 </div>
                 <h3 className="mt-0 mb-2 text-xl font-semibold tracking-normal text-black dark:text-white">
                   Ethereum
@@ -145,7 +155,7 @@ const Home: NextPageWithLayout = () => {
 
               <div className="relative flex-none w-full max-w-full px-5 text-center md:mt-10 md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
                 <div className="mb-4">
-                  <Image src="/Polygon.svg"                 alt="" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
+                  <img src="./Polygon.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
                 </div>
                 <h3 className="mt-0 mb-2 text-xl font-semibold tracking-normal text-black dark:text-white">
                   Polygon
@@ -159,7 +169,7 @@ const Home: NextPageWithLayout = () => {
 
               <div className="relative flex-none w-full max-w-full px-5 text-center md:mt-10 md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
                 <div className="mb-4">
-                  <Image src="/stripe.webp"                 alt="" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
+                  <img src="./stripe.webp" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
                 </div>
                 <h3 className="mt-0 mb-2 text-xl font-semibold tracking-normal text-black dark:text-white">
                   Stripe
@@ -174,16 +184,16 @@ const Home: NextPageWithLayout = () => {
           </div>
         </div>
       </section>
-                  {/* CLOTHES EUROPE */}
-                  <section className="w-full py-10 bg-gray-50 dark:bg-darkbg dark:text-white">
+      {/* CLOTHES EUROPE */}
+      <section className="w-full py-10 bg-gray-50 dark:bg-darkbg dark:text-white">
         <div className="px-10 mx-auto max-w-7xl">
           <div className="px-10 mb-8 space-y-5 lg:mb-16 lg:px-0 lg:text-center">
             <h6 className="mt-0 mb-2 text-xs font-normal tracking-widest text-gray-400 uppercase dark:text-gray-200">
-              Responsible brand 
+              Responsible brand
             </h6>
             <p className="mb-4 text-gray-900 dark:text-white text-2xl-regular">
-           0x StreetWear
-          </p>
+              0x StreetWear
+            </p>
             <p className="mt-0 mb-10 text-lg leading-8 text-gray-400">
               {" "}
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -193,7 +203,9 @@ const Home: NextPageWithLayout = () => {
           <div className="grid overflow-hidden bg-white border rounded-lg dark:border-darkborder dark:bg-mediumbg ">
             <div className="grid items-center lg:grid-cols-2">
               <div className="flex flex-col items-start justify-center h-full py-16 pl-16 pr-16 space-y-4 saturate-80 backdrop-brightness-10 lg:py-0 lg:pr-20">
-                <h3 className="text-2xl font-semibold dark:text-white sm:text-4xl">Lorem Ipsum</h3>
+                <h3 className="text-2xl font-semibold dark:text-white sm:text-4xl">
+                  Lorem Ipsum
+                </h3>
                 <p className="text-lg text-gray-600 dark:text-gray-400">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry
@@ -201,9 +213,9 @@ const Home: NextPageWithLayout = () => {
                 </p>
               </div>
               <div className="mx-5 my-5 overflow-hidden scale-90 bg-gray-100 rounded-md h-96 w-30">
-                <Image
-                  src="https://images.livemint.com/img/2021/12/28/1600x900/3d34ee44-3bcd-11ec-85b5-f6ae4e4cc2c9_1637497069018_1640703168967.jpg"
-                  className="object-cover w-full h-full"
+              <img
+                  src="./work2.webp"
+                  className="object-cover w-full h-full duration-500 hover:scale-110"
                   alt=""
                 />
               </div>
@@ -211,14 +223,16 @@ const Home: NextPageWithLayout = () => {
 
             <div className="grid items-center lg:grid-cols-2">
               <div className="order-last mx-5 my-5 overflow-hidden scale-90 bg-gray-100 rounded-md h-96 lg:order-first">
-                <Image
-                  src="https://apparelresources.com/wp-content/uploads/2019/04/Turkmenistan-textile-sector.jpg"
-                  className="object-cover w-full h-full"
+              <img
+                  src="./work.webp"
+                  className="object-cover w-full h-full duration-500 hover:scale-110"
                   alt=""
                 />
               </div>
               <div className="flex flex-col items-start justify-center h-full py-16 pl-16 pr-16 space-y-4 lg:py-0 lg:pr-20">
-                <h3 className="text-2xl font-semibold sm:text-4xl dark:text-white">Lorem Ipsum</h3>
+                <h3 className="text-2xl font-semibold sm:text-4xl dark:text-white">
+                  Lorem Ipsum
+                </h3>
                 <p className="text-lg text-left text-gray-600 dark:text-gray-400">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry
