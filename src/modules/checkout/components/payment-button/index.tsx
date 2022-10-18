@@ -374,25 +374,22 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                 : (isError("Invalid address, order didn't proceed"),
                   (paymentState = false))
             }
+
             {
-              paymentState
-                ? {
-                    if(cart: { cart: { id: string } }) {
-                      medusa.carts.update(cart.cart.id, {
-                        context: {
-                          CryptoPayment: [
-                            clientNetwork.name,
-                            transaction.hash,
-                            Number(transaction.value) / 1000000000000000000,
-                            clientCurrency.symb,
-                            transaction.from,
-                            transaction.to,
-                          ],
-                        },
-                      }),
-                        validatePayment()
+              paymentState && cart.cart?.id != undefined
+                ? (medusa.carts.update(cart.cart.id, {
+                    context: {
+                      CryptoPayment: [
+                        clientNetwork.name,
+                        transaction.hash,
+                        Number(transaction.value) / 1000000000000000000,
+                        clientCurrency.symb,
+                        transaction.from,
+                        transaction.to,
+                      ],
                     },
-                  }
+                  }),
+                  validatePayment())
                 : ""
             }
           }
@@ -468,24 +465,21 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                             (paymentState = false))
                       }
                       {
-                        paymentState
-                          ? {
-                              if(cart: { cart: { id: string } }) {
-                                medusa.carts.update(cart.cart.id, {
-                                  context: {
-                                    CryptoPayment: [
-                                      clientNetwork.name,
-                                      transaction.hash,
-                                      Number(dataValue) / 1000000000000000000,
-                                      clientCurrency.symb,
-                                      transaction.from,
-                                      dataTo,
-                                    ],
-                                  },
-                                }),
-                                  validatePayment()
+                        paymentState && cart.cart?.id != undefined
+                          ? (medusa.carts.update(cart.cart.id, {
+                              context: {
+                                CryptoPayment: [
+                                  clientNetwork.name,
+                                  transaction.hash,
+                                  Number(transaction.value) /
+                                    1000000000000000000,
+                                  clientCurrency.symb,
+                                  transaction.from,
+                                  transaction.to,
+                                ],
                               },
-                            }
+                            }),
+                            validatePayment())
                           : ""
                       }
                     }
@@ -506,13 +500,10 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
   const validatePayment = () => {
     setIsShowing(true)
     setAlertType("info")
-    setAlertText("Transaction confirmed")
+    setAlertText("Transaction confirmed, redirecting ...")
     setSubmitting(true)
     onPaymentCompleted()
     setSubmitting(false)
-    setTimeout(() => {
-      setIsShowing(false)
-    }, 5000)
   }
 
   /**
