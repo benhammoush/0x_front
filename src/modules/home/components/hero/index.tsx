@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-[90%]">
+    <div className="relative w-screen overflow-hidden h-[90%]">
       <div className="absolute inset-0 wide:ml-[25vw] z-10 flex flex-col items-center justify-center text-center text-white small:text-left small:justify-end small:items-start small:p-32">
         <h1 className="mb-4 text-xl-semi md:text-2xl-semi drop-shadow-md shadow-black">
           Summer styles are finally here
@@ -16,7 +16,7 @@ const Hero = () => {
       </div>
       <video
         id="vid" 
-        className="saturate-80 mx-auto min-h-[100vh] max-h-screen w-screen object-fill brightness-75"
+        className="object-none max-h-screen min-h-screen mx-auto md:object-fill aspect-video saturate-80 md:w-screen brightness-75"
         autoPlay={true}
         loop
         muted={true}
