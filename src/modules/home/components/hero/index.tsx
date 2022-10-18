@@ -20,6 +20,7 @@ const Hero = () => {
         autoPlay={true}
         loop
         muted={true}
+        playsInline={true}
       >
         <source src="/polo.mp4" />
       </video>
