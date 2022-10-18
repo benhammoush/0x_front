@@ -6,9 +6,9 @@ const Hero = () => {
     <div className="relative w-screen overflow-hidden h-[90%]">
       <div className="absolute inset-0 wide:ml-[25vw] z-10 flex flex-col items-center justify-center text-center text-white small:text-left small:justify-end small:items-start small:p-32">
         <h1 className="mb-4 text-xl-semi md:text-2xl-semi drop-shadow-md shadow-black">
-          Summer styles are finally here
+          0 | X Streetwear
         </h1>
-        <p className="text-base-regular max-w-[32rem] mb-6 drop-shadow-md shadow-black">
+        <p className="text-base-regular md:max-w-[32rem] max-w-[15rem] mb-6 drop-shadow-md shadow-black">
           This year, our new summer collection will shelter you from the harsh
           elements of a world that doesn&apos;t care if you live or die.
         </p>
