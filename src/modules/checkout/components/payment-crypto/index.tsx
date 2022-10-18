@@ -8,7 +8,6 @@ import {
 import { useCart } from "medusa-react"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import * as data from "../payment-crypto/json/datas.json"
-import Image from "next/image"
 
 const PaymentCrypto = () => {
   useEffect(() => {
@@ -137,7 +136,7 @@ const PaymentCrypto = () => {
                 <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium border rounded-md bg-ui-light dark:bg-mediumbg dark:text-white dark:border-darkborder focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   <div className="grid grid-cols-4 gap-2 divide-x divide-gray-400 dark:divide-gray-600">
                     <div>
-                      <Image
+                      <img
                         src={supportednetworks[id_1].icon}
                         className="justify-center w-auto h-5"
                         alt=""
@@ -177,7 +176,7 @@ const PaymentCrypto = () => {
                               >
                                 <div className="grid grid-cols-4 gap-2 text-gray-500 divide-x divide-gray-400 hover:text-gray-900 hover:dark:text-white dark:divide-gray-600">
                                   <div>
-                                    <Image
+                                    <img
                                       src={key.icon}
                                       className="justify-center w-auto h-5"
                                       alt=""
@@ -210,7 +209,7 @@ const PaymentCrypto = () => {
                 <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium border rounded-md bg-ui-light dark:bg-mediumbg dark:text-white dark:border-darkborder focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   <div className="grid grid-cols-4 gap-2 divide-x divide-gray-400 hover:text-gray-900 hover:dark:text-white dark:divide-gray-600">
                     <div>
-                      <Image
+                      <img
                         src={supportednetworks[id_1].accept[id_2].icon}
                         className="justify-center w-auto h-5"
                         alt=""
@@ -252,7 +251,7 @@ const PaymentCrypto = () => {
                               >
                                 <div className="grid w-full grid-cols-4 gap-2 text-gray-500 divide-x divide-gray-400 hover:text-gray-900 hover:dark:text-white dark:divide-gray-600">
                                   <div>
-                                    <Image
+                                    <img
                                       src={key.icon}
                                       className="justify-center w-auto h-5"
                                       alt=""
