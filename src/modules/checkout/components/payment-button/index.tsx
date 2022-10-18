@@ -249,7 +249,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
       const accounts = await provider
         .send("eth_requestAccounts", [])
-        .catch((err: { toString: () => any }) => isError(err.toString()))
+        .catch((err: { toString: () => any }) => isError("Wallet canceled"))
       {
         accounts ? sendPayment() : ""
       }
@@ -282,7 +282,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
     const accounts = await provider
       .send("eth_requestAccounts", [])
-      .catch((err: { toString: () => any }) => isError(err.toString()))
+      .catch((err: { toString: () => any }) => isError("Wallet canceled"))
     const walletNetwork = await provider.getNetwork()
     const signer = provider.getSigner()
 
