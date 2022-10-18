@@ -36,7 +36,7 @@ const Home: NextPageWithLayout = () => {
             </div>
           </div>
         </div>
-        <div className="grid w-[80%] max-w-[1400px] h-[500px]  border mx-auto rounded-md  dark:border-darkborder overflow-hidden bg-white dark:bg-mediumbg md:grid-cols-3">
+        <div className="grid w-[80%] max-w-[1400px] h-full  border mx-auto rounded-md  dark:border-darkborder overflow-hidden bg-white dark:bg-mediumbg md:grid-cols-3">
           <div className="flex flex-wrap justify-center max-w-5xl col-span-2 mx-auto text-white md:scale-75 ov drop-shadow-2xl">
             <div className="relative w-full px-4 mt-5 leading-6 text-left xl:flex-shrink-0 xl:flex-grow-0 md:mt-0">
 
