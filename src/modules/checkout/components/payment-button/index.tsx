@@ -378,18 +378,14 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
             {
               paymentState && cart.cart?.id != undefined
                 ? (
-
                   medusa.carts.retrieve(cart.cart.id)
                   .then(({ cart }) => {
                     console.log(cart);
                   })
-
-
+                  .catch((error) => console.log(error)) 
                   // medusa.carts
                   //   .update(cart.cart.id, {
                   //     context: { ip: "::1", user_agent: "Chrome" }
-
-
                       //  {
                       //   CryptoPayment: [
                       //     clientNetwork.name,
@@ -400,14 +396,11 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                       //     transaction.to,
                       //   ],
                       // },
-
-
                     // })
-
-
-                    ,console.log(cart.cart),
+                    // ,console.log(cart.cart)
+                    ,
                   validatePayment())
-                : console.log("Request error")
+                : ""
             }
           }
         )
