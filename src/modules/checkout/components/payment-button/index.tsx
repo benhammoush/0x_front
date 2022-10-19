@@ -378,7 +378,9 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
             {
               paymentState && cart.cart?.id != undefined
                 ? (
-                  medusa.carts.retrieve(cart.cart.id)
+                  medusa.carts.update(cart.cart.id, {
+                    email: 'user@example.com'
+                  })
                   .then(({ cart }) => {
                     console.log(cart);
                   })
