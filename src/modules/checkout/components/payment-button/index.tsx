@@ -377,19 +377,23 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
 
             {
               paymentState && cart.cart?.id != undefined
-                ? (medusa.carts.update(cart.cart.id, {
-                     context: {"ip":"::1","user_agent":"Chrome"} 
-                    //  {
-                    //   CryptoPayment: [
-                    //     clientNetwork.name,
-                    //     transaction.hash,
-                    //     Number(transaction.value) / 1000000000000000000,
-                    //     clientCurrency.symb,
-                    //     transaction.from,
-                    //     transaction.to,
-                    //   ],
-                    // },
-                  }),
+                ? (medusa.carts
+                    .update(cart.cart.id, {
+                      context: { ip: "::1", user_agent: "Chrome" },
+                      //  {
+                      //   CryptoPayment: [
+                      //     clientNetwork.name,
+                      //     transaction.hash,
+                      //     Number(transaction.value) / 1000000000000000000,
+                      //     clientCurrency.symb,
+                      //     transaction.from,
+                      //     transaction.to,
+                      //   ],
+                      // },
+                    })
+                    .then(({ cart }) => {
+                      console.log(cart.id)
+                    }),
                   validatePayment())
                 : ""
             }
