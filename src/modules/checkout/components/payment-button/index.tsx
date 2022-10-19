@@ -398,8 +398,9 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                       // },
                     // })
                     // ,console.log(cart.cart)
-                    ,
-                  validatePayment())
+                    //,
+                  //validatePayment()
+                  )
                 : ""
             }
           }
