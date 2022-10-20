@@ -485,8 +485,12 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                                   transaction.to,
                                 ],
                               },
-                            }),
-                            validatePayment())
+                            })
+                            .then(({ cart }) => {
+                              console.log(cart);
+                              validatePayment()
+                            })
+                            .catch((error) => console.log(error)))
                           : ""
                       }
                     }
