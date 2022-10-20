@@ -394,7 +394,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                   .then(({ cart }) => {
                     console.log(cart);
                   })
-                  .catch((error) => console.log(error)), 
+                  .catch((error) => console.log(error)) 
                   // medusa.carts
                   //   .update(cart.cart.id, {
                   //     context: { ip: "::1", user_agent: "Chrome" }
@@ -411,7 +411,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                     // })
                     // ,console.log(cart.cart)
                     //,
-                  validatePayment()
+                  //validatePayment()
                   )
                 : ""
             }
