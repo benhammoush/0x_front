@@ -6749,11 +6749,11 @@
           "isnative": true
         },
         {
-          "name": "Tether",
-          "symb": "USDT",
-          "icon": "./Tether.svg",
+          "name": "USDC",
+          "symb": "USDC",
+          "icon": "./Usdc.svg",
           "isnative": false,
-          "contract": "0xD9BA894E0097f8cC2BBc9D24D308b98e36dc6D02",
+          "contract": "0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C",
           "abi": [
             {
               "constant": true,
