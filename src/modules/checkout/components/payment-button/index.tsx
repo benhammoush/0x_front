@@ -393,9 +393,9 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                   )
                   .then(({ cart }) => {
                     console.log(cart);
+                    validatePayment()
                   })
-                  .catch((error) => console.log(error)), 
-                  validatePayment()
+                  .catch((error) => console.log(error))
                   )
                 : ""
             }
