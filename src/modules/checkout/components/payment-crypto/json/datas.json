@@ -6753,7 +6753,7 @@
           "symb": "USDC",
           "icon": "./Usdc.svg",
           "isnative": false,
-          "contract": "0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C",
+          "contract": "0xBA62BCfcAaFc6622853cca2BE6Ac7d845BC0f2Dc",
           "abi": [
             {
               "constant": true,
