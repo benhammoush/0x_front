@@ -393,9 +393,25 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                   )
                   .then(({ cart }) => {
                     console.log(cart);
-                    validatePayment()
                   })
-                  .catch((error) => console.log(error))
+                  .catch((error) => console.log(error)), 
+                  // medusa.carts
+                  //   .update(cart.cart.id, {
+                  //     context: { ip: "::1", user_agent: "Chrome" }
+                      //  {
+                      //   CryptoPayment: [
+                      //     clientNetwork.name,
+                      //     transaction.hash,
+                      //     Number(transaction.value) / 1000000000000000000,
+                      //     clientCurrency.symb,
+                      //     transaction.from,
+                      //     transaction.to,
+                      //   ],
+                      // },
+                    // })
+                    // ,console.log(cart.cart)
+                    //,
+                  validatePayment()
                   )
                 : ""
             }
