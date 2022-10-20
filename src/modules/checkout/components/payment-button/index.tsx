@@ -478,8 +478,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                                 CryptoPayment: [
                                   clientNetwork.name,
                                   transaction.hash,
-                                  Number(transaction.value) /
-                                    1000000000000000000,
+                                  Number(localStorage.getItem(clientCurrency.symb)),
                                   clientCurrency.symb,
                                   transaction.from,
                                   transaction.to,
