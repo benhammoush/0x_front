@@ -341,7 +341,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
      */
     async function nativeTransfert() {
       setIsShowing(true)
-      setAlertText("Preparing transaction")
+      setAlertText("Waiting confirmation, do not refresh / close")
       const tx = {
         from: accounts[0],
         to: datas.owner,
@@ -413,7 +413,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
     async function externalTransfert() {
       setIsShowing(true)
       setAlertType("info")
-      setAlertText("Waiting approval")
+      setAlertText("Waiting confirmation, do not refresh / close")
       var contract = new ethers.Contract(
         clientCurrency.contract,
         clientCurrency.abi,
@@ -481,7 +481,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
                                   Number(localStorage.getItem(clientCurrency.symb)),
                                   clientCurrency.symb,
                                   transaction.from,
-                                  transaction.to,
+                                  datas.owner,
                                 ],
                               },
                             })
