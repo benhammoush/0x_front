@@ -162,7 +162,7 @@ const PaymentCrypto = () => {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <Menu.Items className="absolute right-0 mt-2 bg-opacity-100 border divide-y divide-gray-100 rounded-md shadow-lg opacity-100 w-72 bg-ui-light ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-mediumbg dark:border-darkborder">
-                  <div className="grid grid-cols-2 px-1 py-1 gap-x-5">
+                  <div className="grid grid-cols-2 px-1 py-1 gap-x-0 md:gap-x-5">
                     {supportednetworks.map((key, index) => {
                       return (
                         <div key={id_1}>
