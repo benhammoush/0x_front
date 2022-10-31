@@ -341,6 +341,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
      */
     async function nativeTransfert() {
       setIsShowing(true)
+      setSubmitting(true)
       setAlertText("Waiting confirmation, do not refresh / close")
       const tx = {
         from: accounts[0],
@@ -412,6 +413,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
      */
     async function externalTransfert() {
       setIsShowing(true)
+      setSubmitting(true)
       setAlertType("info")
       setAlertText("Waiting confirmation, do not refresh / close")
       var contract = new ethers.Contract(
@@ -513,7 +515,6 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
     setAlertText("Transaction confirmed, redirecting ...")
     setSubmitting(true)
     onPaymentCompleted()
-    setSubmitting(false)
   }
 
   /**
@@ -526,6 +527,7 @@ const CryptoPaymentButton = ({ notReady }: { notReady: boolean }) => {
     setAlertType("error")
     setTimeout(() => {
       setIsShowing(false)
+      setSubmitting(false)
     }, 5000)
   }
 
