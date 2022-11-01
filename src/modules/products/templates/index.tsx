@@ -30,6 +30,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
   const inView = useIntersection(info, "0px")
   const [alertText, setAlertText] = useState("")
 
+  console.log(product)
 
   product.tags.forEach(function (value) {
     if (value.value == "Custom") {
@@ -310,9 +311,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
           <RelatedProducts product={product} />
         </div>
       )} */}
-        <div className="px-6 my-16 content-container small:px-8 small:my-32">
-          <RelatedProducts product={product} />
-        </div>
       <MobileActions product={product} show={!inView} />
     </ProductProvider>
   )
