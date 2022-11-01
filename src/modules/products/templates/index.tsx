@@ -34,6 +34,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
   product.tags.forEach(function (value) {
     if (value.value == "Custom") {
       iscustom = true
+      console.log("product is custom")
     }
   })
 
@@ -157,7 +158,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
     <ProductProvider product={product}>
       <div className="relative flex flex-col py-6 content-container dark:bg-darkbg dark:text-white small:flex-row small:items-start">
         <div className="flex flex-col w-full gap-y-8">
-          {iscustom ? (
+          {/* {iscustom ? (
             <div className="lg:w-[90%] sm:w-[100%] overflow-hidden rounded-lg">
               <div
                 id="canvafull"
@@ -170,7 +171,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
             </div>
           ) : (
             <ImageGallery images={product.images} />
-          )}
+          )} */}
+          <ImageGallery images={product.images} />
         </div>
         <div
           className="small:sticky small:top-20   w-full py-8 small:py-0 small:max-w-[344px] medium:max-w-[400px] flex flex-col gap-y-12"
@@ -301,13 +303,16 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
           <ProductTabs product={product} />
         </div>
       </div>
-      {iscustom ? (
+      {/* {iscustom ? (
         ""
       ) : (
         <div className="px-6 my-16 content-container small:px-8 small:my-32">
           <RelatedProducts product={product} />
         </div>
-      )}
+      )} */}
+        <div className="px-6 my-16 content-container small:px-8 small:my-32">
+          <RelatedProducts product={product} />
+        </div>
       <MobileActions product={product} show={!inView} />
     </ProductProvider>
   )
