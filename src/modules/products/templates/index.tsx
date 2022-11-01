@@ -33,6 +33,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
   console.log(product)
 
   product.tags.forEach(function (value) {
+      console.log(value)
     if (value.value == "Custom") {
       iscustom = true
       console.log("product is custom")
