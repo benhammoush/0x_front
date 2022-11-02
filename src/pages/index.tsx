@@ -71,7 +71,7 @@ const Home: NextPageWithLayout = () => {
               industry. Lorem Ipsum has been the industry standard dummy text
               ever since the 1500s{" "}
             </p>
-            <UnderlineLink href="/products/tshirtcustom">
+            <UnderlineLink href="/products/custom-tshirt">
               Try now !
             </UnderlineLink>
           </div>
