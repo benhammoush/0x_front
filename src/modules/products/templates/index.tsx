@@ -21,7 +21,7 @@ type ProductTemplateProps = {
 declare var window: any
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
-  const [assets, setassets] = useState<any>()
+  const [assets, setassets] = useState<any[]>()
   const [assetsnb, setassetsnb] = useState(0)
   const [loading, isLoading] = useState(false)
   const [canvas, setCanvas] = useState<any>()
