@@ -208,7 +208,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                             </Button>
                           </div>
                         )}
-                        {assetsnb > 0 && (
+                        {assets.length > 0 && (
                           <div className="grid justify-center max-w-xl grid-cols-3 gap-5 mx-5 my-5 text-gray-400 min-w-4xl">
                             {assets.forEach((element: any) => {
                               if (element.previews?.image_large_url != null) {
