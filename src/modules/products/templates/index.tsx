@@ -77,7 +77,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
     )
   }
 
-
   const getCanvasImageLinks = () => {
     let nftArray = [canvas.getObjects().length]
     let i = 0
@@ -103,7 +102,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
         const accounts = await provider
           .send("eth_requestAccounts", [])
           .catch((err) => setAlertText(err.toString()))
-          fetchNFT()
+        fetchNFT()
       } catch (error) {
         setAlertText("Missing wallet extension")
       }
@@ -286,9 +285,36 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                               }
                             })} */}
                             {console.log(assets)}
-                            {assets.array.forEach((element: any) => {
-                              console.log(element)
-                            })}
+                            {assets.forEach((element: any) => {
+                              if (
+                                element.previews?.image_large_url != null
+                              ) {
+                                return (
+                                  <button
+                                    className="w-full card-compact"
+                                    onClick={() =>
+                                      addImage(
+                                        element.previews?.image_large_url
+                                      )
+                                    }
+                                    key={element.name}
+                                  >
+                                    {element.chain == "ethereum" ? (
+                                      <figure>
+                                        <Image
+                                          src={
+                                            assets[index].previews
+                                              ?.image_small_url
+                                          }
+                                          alt={assets[index].name}
+                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
+                                        />
+                                      </figure>
+                                    ) : (
+                                      ""
+                                    )}
+                              </button>
+                            )}})}
                           </div>
                         )}
                       </div>
