@@ -144,8 +144,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
         setAlertText("found " + nftarray.length + " nfts...")
         if (nextpage == "lastpage") {
           setTimeout(() => {
+            isLoading(false)
             console.log(nftarray)
-            nftarray?.map((index: React.Key | any) => {
+            nftarray?.map((index: number) => {
             console.log(nftarray[index])
             })
           }, 1000)
