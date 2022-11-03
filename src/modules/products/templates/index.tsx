@@ -303,10 +303,10 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                       <figure>
                                         <Image
                                           src={
-                                            assets[index].previews
+                                            element.previews
                                               ?.image_small_url
                                           }
-                                          alt={assets[index].name}
+                                          alt={element.name}
                                           className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                         />
                                       </figure>
