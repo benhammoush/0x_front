@@ -142,6 +142,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
         }
         setassetsnb(nftarray.length)
         setassets(nftarray)
+        console.log(assets)
+        console.log(nftarray)
         setAlertText("found " + nftarray.length + " nfts...")
         if (nextpage == "lastpage") {
           setTimeout(() => {
