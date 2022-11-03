@@ -146,9 +146,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
           setTimeout(() => {
             isLoading(false)
             console.log(nftarray)
-            nftarray?.map((index: number) => {
-            console.log(nftarray[index])
-            })
+            nftarray?.forEach((element: any) => {
+              console.log(element)
+            });
+            // ((index: number) => {
+            // console.log(nftarray[index])
+            // })
           }, 1000)
         }
       }
