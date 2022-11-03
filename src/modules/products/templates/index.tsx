@@ -21,7 +21,7 @@ type ProductTemplateProps = {
 declare var window: any
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
-  const [assets, setassets] = useState()
+  const [assets, setassets] = useState<any>()
   const [assetsnb, setassetsnb] = useState(0)
   const [loading, isLoading] = useState(false)
   const [canvas, setCanvas] = useState<any>()
@@ -112,7 +112,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
     const fetchNFT = async () => {
       setAlertText("fetching nfts...")
       var nextpage = ""
-      var nftarray: any[] = []
+      var nftarray = []
       const options = {
         method: "GET",
         headers: {
@@ -141,17 +141,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
           setAlertText(err)
         }
         setassetsnb(nftarray.length)
+        setassets(nftarray)
         setAlertText("found " + nftarray.length + " nfts...")
         if (nextpage == "lastpage") {
           setTimeout(() => {
             isLoading(false)
-            console.log(nftarray)
-            nftarray?.forEach((element: any) => {
-              console.log(element)
-            });
-            // ((index: number) => {
-            // console.log(nftarray[index])
-            // })
           }, 1000)
         }
       }
@@ -215,11 +209,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                             </Button>
                           </div>
                         )}
-                        {/* {assetsnb > 0 && (
+                        {assetsnb > 0 && (
                           <div className="grid justify-center max-w-xl grid-cols-3 gap-5 mx-5 my-5 text-gray-400 min-w-4xl">
-                            {assets.map((index: React.Key | any) => {
+                            {/* {assets.map((index: React.Key | any) => {
                               if (
-                                assets[index].previews?.image_medium_url != null
+                                assets[index].previews?.image_large_url != null
                               ) {
                                 return (
                                   <button
@@ -290,9 +284,13 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                   </button>
                                 )
                               }
+                            })} */}
+                            {console.log(assets)}
+                            {assets.array.forEach((element: any) => {
+                              console.log(element)
                             })}
                           </div>
-                        )} */}
+                        )}
                       </div>
                     )}
                   </div>
