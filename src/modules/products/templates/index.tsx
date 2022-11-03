@@ -212,7 +212,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                           <div className="grid justify-center max-w-xl grid-cols-3 gap-5 mx-5 my-5 text-gray-400 min-w-4xl">
                             {assets.forEach((element: any) => {
                               if (element.previews?.image_large_url != null) {
-                                console.log(element)
                                 return (
                                   <button
                                     className="w-full h-auto card-compact"
@@ -223,13 +222,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                     }
                                     key={element.name}
                                   >
-                                    <figure>
                                       <img
                                         src={element.previews?.image_small_url}
                                         alt={element.name}
-                                        className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
+                                        className="mx-auto h-30 w-[90%] rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                       />
-                                    </figure>
                                   </button>
                                 )
                               }
