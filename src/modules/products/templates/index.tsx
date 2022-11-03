@@ -210,86 +210,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                         )}
                         {assetsnb > 0 && (
                           <div className="grid justify-center max-w-xl grid-cols-3 gap-5 mx-5 my-5 text-gray-400 min-w-4xl">
-                            {/* {assets.map((index: React.Key | any) => {
-                              if (
-                                assets[index].previews?.image_large_url != null
-                              ) {
-                                return (
-                                  <button
-                                    className="w-full card-compact"
-                                    onClick={() =>
-                                      addImage(
-                                        assets[index].previews?.image_large_url
-                                      )
-                                    }
-                                    key={index}
-                                  >
-                                    {assets[index].chain == "ethereum" ? (
-                                      <figure>
-                                        <Image
-                                          src={
-                                            assets[index].previews
-                                              ?.image_small_url
-                                          }
-                                          alt={assets[index].name}
-                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
-                                        />
-                                      </figure>
-                                    ) : (
-                                      ""
-                                    )}
-                                    {assets[index].chain == "polygon" ? (
-                                      <figure>
-                                        <Image
-                                          src={
-                                            assets[index].previews
-                                              ?.image_small_url
-                                          }
-                                          alt={assets[index].name}
-                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-purple-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
-                                        />
-                                      </figure>
-                                    ) : (
-                                      ""
-                                    )}
-                                    {assets[index].chain == "avalanche" ? (
-                                      <figure>
-                                        <Image
-                                          src={
-                                            assets[index].previews
-                                              ?.image_small_url
-                                          }
-                                          alt={assets[index].name}
-                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-red-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
-                                        />
-                                      </figure>
-                                    ) : (
-                                      ""
-                                    )}
-                                    {assets[index].chain == "arbitrum" ? (
-                                      <figure>
-                                        <Image
-                                          src={
-                                            assets[index].previews
-                                              ?.image_small_url
-                                          }
-                                          alt={assets[index].name}
-                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-blue-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
-                                        />
-                                      </figure>
-                                    ) : (
-                                      ""
-                                    )}
-                                  </button>
-                                )
-                              }
-                            })} */}
                             {assets.forEach((element: any) => {
                               if (element.previews?.image_large_url != null) {
                                 console.log(element)
                                 return (
                                   <button
-                                    className="w-full card-compact"
+                                    className="w-full h-auto card-compact"
                                     onClick={() =>
                                       addImage(
                                         element.previews?.image_large_url
