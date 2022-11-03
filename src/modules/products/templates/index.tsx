@@ -146,7 +146,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
         if (nextpage == "lastpage") {
           setTimeout(() => {
             isLoading(false)
-            assets.map((index: React.Key | any) => {
+            console.log(assets)
+            assets?.map((index: React.Key | any) => {
             console.log(assets[index])
             })
           }, 1000)
