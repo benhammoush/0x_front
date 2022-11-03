@@ -226,8 +226,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                     key={element.name}
                                   >
                                     {element.chain == "ethereum" ? (
-                                      <figure>
-                                        <Image
+
+                                        <img
                                           src={
                                             element.previews
                                               ?.image_small_url
@@ -235,13 +235,13 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                           alt={element.name}
                                           className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                         />
-                                      </figure>
+
                                     ) : (
                                       ""
                                     )}
                                     {element.chain == "polygon" ? (
-                                      <figure>
-                                        <Image
+  
+                                        <img
                                           src={
                                             element.previews
                                               ?.image_small_url
@@ -249,13 +249,13 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                           alt={element.name}
                                           className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-purple-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                         />
-                                      </figure>
+
                                     ) : (
                                       ""
                                     )}
                                     {element.chain == "avalanche" ? (
-                                      <figure>
-                                        <Image
+
+                                        <img
                                           src={
                                             element.previews
                                               ?.image_small_url
@@ -263,13 +263,13 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                           alt={element.name}
                                           className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-red-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                         />
-                                      </figure>
+
                                     ) : (
                                       ""
                                     )}
                                     {element.chain == "arbitrum" ? (
-                                      <figure>
-                                        <Image
+
+                                        <img
                                           src={
                                             element.previews
                                               ?.image_small_url
@@ -277,7 +277,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                           alt={element.name}
                                           className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-blue-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                         />
-                                      </figure>
                                     ) : (
                                       ""
                                     )}
