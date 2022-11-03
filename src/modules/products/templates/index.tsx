@@ -224,7 +224,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                     key={element.name}
                                   >
                                     <figure>
-                                      <Image
+                                      <img
                                         src={element.previews?.image_small_url}
                                         alt={element.name}
                                         className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
