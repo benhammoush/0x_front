@@ -21,7 +21,7 @@ type ProductTemplateProps = {
 declare var window: any
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
-  const [assets, setassets] = useState<any[]>()
+  const [assets, setassets] = useState()
   const [assetsnb, setassetsnb] = useState(0)
   const [loading, isLoading] = useState(false)
   const [canvas, setCanvas] = useState<any>()
@@ -112,7 +112,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
     const fetchNFT = async () => {
       setAlertText("fetching nfts...")
       var nextpage = ""
-      var nftarray = []
+      var nftarray: any[] = []
       const options = {
         method: "GET",
         headers: {
@@ -141,16 +141,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
           setAlertText(err)
         }
         setassetsnb(nftarray.length)
-        setassets(nftarray)
-        console.log(assets)
-        console.log(nftarray)
         setAlertText("found " + nftarray.length + " nfts...")
         if (nextpage == "lastpage") {
           setTimeout(() => {
-            isLoading(false)
-            console.log(assets)
-            assets?.map((index: React.Key | any) => {
-            console.log(assets[index])
+            console.log(nftarray)
+            nftarray?.map((index: React.Key | any) => {
+            console.log(nftarray[index])
             })
           }, 1000)
         }
