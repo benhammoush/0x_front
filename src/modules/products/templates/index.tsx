@@ -284,11 +284,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                 )
                               }
                             })} */}
-                            {console.log(assets)}
                             {assets.forEach((element: any) => {
-                              if (
-                                element.previews?.image_large_url != null
-                              ) {
+                              if (element.previews?.image_large_url != null) {
+                                console.log(element)
                                 return (
                                   <button
                                     className="w-full card-compact"
@@ -299,22 +297,17 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                     }
                                     key={element.name}
                                   >
-                                    {element.chain == "ethereum" ? (
-                                      <figure>
-                                        <Image
-                                          src={
-                                            element.previews
-                                              ?.image_small_url
-                                          }
-                                          alt={element.name}
-                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
-                                        />
-                                      </figure>
-                                    ) : (
-                                      ""
-                                    )}
-                              </button>
-                            )}})}
+                                    <figure>
+                                      <Image
+                                        src={element.previews?.image_small_url}
+                                        alt={element.name}
+                                        className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
+                                      />
+                                    </figure>
+                                  </button>
+                                )
+                              }
+                            })}
                           </div>
                         )}
                       </div>
