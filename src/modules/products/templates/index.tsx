@@ -212,6 +212,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                           <div className="grid justify-center max-w-xl grid-cols-3 gap-5 mx-5 my-5 text-gray-400 min-w-4xl">
                             {assets.forEach((element: any) => {
                               if (element.previews?.image_large_url != null) {
+                                console.log(element.previews)
                                 return (
                                   <button
                                     className="w-full h-auto card-compact"
