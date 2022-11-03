@@ -77,6 +77,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
     )
   }
 
+
   const getCanvasImageLinks = () => {
     let nftArray = [canvas.getObjects().length]
     let i = 0
@@ -102,7 +103,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
         const accounts = await provider
           .send("eth_requestAccounts", [])
           .catch((err) => setAlertText(err.toString()))
-        fetchNFT()
+          fetchNFT()
       } catch (error) {
         setAlertText("Missing wallet extension")
       }
@@ -208,14 +209,15 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                             </Button>
                           </div>
                         )}
-                        {assets?.length > 0 && (
+                        {assetsnb > 0 && (
                           <div className="grid justify-center max-w-xl grid-cols-3 gap-5 mx-5 my-5 text-gray-400 min-w-4xl">
-                            {assets.forEach((element: any) => {
-                              if (element.previews?.image_large_url != null) {
-                                console.log(element.previews)
+                            {assets.array.forEach((element: any) => {
+                              if (
+                                element.previews?.image_medium_url != null
+                              ) {
                                 return (
                                   <button
-                                    className="w-full h-auto card-compact"
+                                    className="w-full card-compact"
                                     onClick={() =>
                                       addImage(
                                         element.previews?.image_large_url
@@ -223,11 +225,62 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                                     }
                                     key={element.name}
                                   >
-                                      <img
-                                        src={element.previews?.image_small_url}
-                                        alt={element.name}
-                                        className="mx-auto h-30 w-[90%] rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
-                                      />
+                                    {element.chain == "ethereum" ? (
+                                      <figure>
+                                        <Image
+                                          src={
+                                            element.previews
+                                              ?.image_small_url
+                                          }
+                                          alt={element.name}
+                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
+                                        />
+                                      </figure>
+                                    ) : (
+                                      ""
+                                    )}
+                                    {element.chain == "polygon" ? (
+                                      <figure>
+                                        <Image
+                                          src={
+                                            element.previews
+                                              ?.image_small_url
+                                          }
+                                          alt={element.name}
+                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-purple-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
+                                        />
+                                      </figure>
+                                    ) : (
+                                      ""
+                                    )}
+                                    {element.chain == "avalanche" ? (
+                                      <figure>
+                                        <Image
+                                          src={
+                                            element.previews
+                                              ?.image_small_url
+                                          }
+                                          alt={element.name}
+                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-red-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
+                                        />
+                                      </figure>
+                                    ) : (
+                                      ""
+                                    )}
+                                    {element.chain == "arbitrum" ? (
+                                      <figure>
+                                        <Image
+                                          src={
+                                            element.previews
+                                              ?.image_small_url
+                                          }
+                                          alt={element.name}
+                                          className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-blue-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
+                                        />
+                                      </figure>
+                                    ) : (
+                                      ""
+                                    )}
                                   </button>
                                 )
                               }
