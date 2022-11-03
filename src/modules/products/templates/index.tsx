@@ -211,70 +211,64 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
                         )}
                         {assetsnb > 0 && (
                           <div className="grid justify-center max-w-xl grid-cols-3 gap-5 mx-5 my-5 text-gray-400 min-w-4xl">
-                            {assets.forEach((element: any) => {
+                            {assets.map((index: React.Key | any) => {
+                              console.log(index)
                               if (
-                                element.previews?.image_medium_url != null
+                                index?.previews?.image_medium_url != null
                               ) {
                                 return (
                                   <button
                                     className="w-full card-compact"
                                     onClick={() =>
                                       addImage(
-                                        element.previews?.image_large_url
+                                        index?.previews?.image_large_url
                                       )
                                     }
-                                    key={element.name}
+                                    key={index}
                                   >
-                                    {element.chain == "ethereum" ? (
-
+                                    {index?.chain == "ethereum" ? (
                                         <img
                                           src={
-                                            element.previews
+                                            index?.previews
                                               ?.image_small_url
                                           }
-                                          alt={element.name}
+                                          alt={index?.name}
                                           className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-gray-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                         />
-
                                     ) : (
                                       ""
                                     )}
-                                    {element.chain == "polygon" ? (
-  
+                                    {index?.chain == "polygon" ? (
                                         <img
                                           src={
-                                            element.previews
+                                            index?.previews
                                               ?.image_small_url
                                           }
-                                          alt={element.name}
+                                          alt={index?.name}
                                           className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-purple-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                         />
-
                                     ) : (
                                       ""
                                     )}
-                                    {element.chain == "avalanche" ? (
-
+                                    {index?.chain == "avalanche" ? (
                                         <img
                                           src={
-                                            element.previews
+                                            index?.previews
                                               ?.image_small_url
                                           }
-                                          alt={element.name}
+                                          alt={index?.name}
                                           className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-red-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                         />
-
                                     ) : (
                                       ""
                                     )}
-                                    {element.chain == "arbitrum" ? (
-
+                                    {index?.chain == "arbitrum" ? (
                                         <img
                                           src={
-                                            element.previews
+                                            index?.previews
                                               ?.image_small_url
                                           }
-                                          alt={element.name}
+                                          alt={index?.name}
                                           className="mx-auto h-30 w-[90%]  rounded-md duration-200 hover:shadow hover:shadow-blue-500 card hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:ring-blue-700"
                                         />
                                     ) : (
