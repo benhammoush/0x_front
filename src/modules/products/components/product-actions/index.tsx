@@ -23,6 +23,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   const [alertText, setAlertText] = useState("")
   const [alertType, setAlertType] = useState("info")
   const [isShowing, setIsShowing] = useState(false)
+  console.log(cart.cart) 
   var isCustom = false
   const {
     updateOptions,
@@ -80,7 +81,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
     })
   }
     window.location.reload()
-    localStorage?.setItem("nftsArray", "")  
+    localStorage?.setItem("nftsArray", "") 
   }
 
   const selectedPrice = useMemo(() => {
