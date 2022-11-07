@@ -80,8 +80,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
     })
   }
     window.location.reload()
-    localStorage?.setItem("nftsArray", "")
-    console.log(cart)   
+    localStorage?.setItem("nftsArray", "")  
   }
 
   const selectedPrice = useMemo(() => {
