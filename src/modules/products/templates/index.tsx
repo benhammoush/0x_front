@@ -12,7 +12,7 @@ import Button from "@modules/common/components/button"
 import { ethers } from "ethers"
 import { Transition, Dialog } from "@headlessui/react"
 import Spinner from "@modules/common/icons/spinner"
-import Image from "next/image"
+
 
 type ProductTemplateProps = {
   product: Product

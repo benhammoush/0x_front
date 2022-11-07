@@ -6,7 +6,7 @@ import clsx from "clsx"
 import Link from "next/link"
 import React, { useEffect, useMemo, useState } from "react"
 import { Product } from "types/medusa"
-// import html2canvas from "html2canvas"
+import html2canvas from "html2canvas"
 import Medusa from "@medusajs/medusa-js"
 import { MEDUSA_BACKEND_URL } from "@lib/config"
 import { useCart } from "medusa-react"
@@ -47,24 +47,24 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
     setIsShowing(true)
     setAlertText("adding custom product to cart...")
     setAlertType("info")
-    // html2canvas(document.querySelector("#canvafull")!, {
-    //   allowTaint: true,
-    // }).then(async (canvas) => {
-    //   if (
-    //     localStorage.getItem("nftsArray")?.length! > 0 &&
-    //     variant.id.length > 0
-    //   ) {
-    //     const url = canvas.toDataURL("image/jpeg", 0.5)
-    //     const nfts = JSON.parse(localStorage.getItem("nftsArray")!)
-    //     sendLink(url, nfts)
-    //   } else {
-    //     setAlertText("No Nfts added or size not specified !")
-    //     setAlertType("error")
-    //     setTimeout(() => {
-    //       setIsShowing(false)
-    //     }, 3000)
-    //   }
-    // })
+    html2canvas(document.querySelector("#canvafull")!, {
+      allowTaint: true,
+    }).then(async (canvas) => {
+      if (
+        localStorage.getItem("nftsArray")?.length! > 0 &&
+        variant.id.length > 0
+      ) {
+        const url = canvas.toDataURL("image/jpeg", 0.5)
+        const nfts = JSON.parse(localStorage.getItem("nftsArray")!)
+        sendLink(url, nfts)
+      } else {
+        setAlertText("No Nfts added or size not specified !")
+        setAlertType("error")
+        setTimeout(() => {
+          setIsShowing(false)
+        }, 3000)
+      }
+    })
   }
 
   /**
