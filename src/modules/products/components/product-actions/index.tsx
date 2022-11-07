@@ -77,10 +77,11 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
       variant_id,
       quantity: 1,
       metadata: { model: url, sources: nfts },
-    })   
+    })
   }
     window.location.reload()
     localStorage?.setItem("nftsArray", "")
+    console.log(cart)   
   }
 
   const selectedPrice = useMemo(() => {
