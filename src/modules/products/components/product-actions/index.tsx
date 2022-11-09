@@ -48,12 +48,14 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
     setIsShowing(true)
     setAlertText("adding custom product to cart...")
     setAlertType("info")
+    console.log(localStorage.getItem("nftsArray"))
+    console.log(variant)
     html2canvas(document.querySelector("#canvafull")!, {
       allowTaint: true,
     }).then(async (canvas) => {
       if (
-        localStorage.getItem("nftsArray") != undefined &&
-        variant.id != undefined
+        localStorage.getItem("nftsArray")?.length! > 0 &&
+        variant.id.length > 0
       ) {
         const url = canvas.toDataURL("image/jpeg", 0.5)
         const nfts = JSON.parse(localStorage.getItem("nftsArray")!)
