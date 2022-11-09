@@ -59,6 +59,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
       ) {
         const url = canvas.toDataURL("image/jpeg", 0.5)
         const nfts = JSON.parse(localStorage.getItem("nftsArray")!)
+        console.log(nfts, url)
         sendLink(url, nfts)
       } else {
         setAlertText("No Nfts added or size not specified !")
