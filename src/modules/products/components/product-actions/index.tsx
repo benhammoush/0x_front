@@ -165,7 +165,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         )}
       </div>
 
-      <Button onClick={() => typeOfCart}>
+      <Button onClick={typeOfCart}>
         {!inStock ? "Out of stock" : "Add to cart"}
       </Button>
       <Transition
