@@ -52,8 +52,8 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
       allowTaint: true,
     }).then(async (canvas) => {
       if (
-        localStorage.getItem("nftsArray")?.length! > 0 &&
-        variant.id.length > 0
+        localStorage.getItem("nftsArray") != undefined &&
+        variant.id != undefined
       ) {
         const url = canvas.toDataURL("image/jpeg", 0.5)
         const nfts = JSON.parse(localStorage.getItem("nftsArray")!)
