@@ -5,7 +5,7 @@ import OptionSelect from "@modules/products/components/option-select"
 import clsx from "clsx"
 import Link from "next/link"
 import React, { useEffect, useMemo, useState } from "react"
-import { Product } from "types/medusa"
+import { Product, Variant } from "types/medusa"
 import html2canvas from "html2canvas"
 import Medusa from "@medusajs/medusa-js"
 import { MEDUSA_BACKEND_URL } from "@lib/config"
@@ -44,11 +44,11 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   /**
    *  this function get datas from canvas
    */
-  const AddCustomToCart = (variant : any) => {
+  const AddCustomToCart = (variant : Variant) => {
     setIsShowing(true)
     setAlertText("adding custom product to cart...")
     setAlertType("info")
-    console.log(localStorage.getItem("nftsArray"))
+    console.log(localStorage.getItem("nftsArray")?.length)
     console.log(variant)
     html2canvas(document.querySelector("#canvafull")!, {
       allowTaint: true,
