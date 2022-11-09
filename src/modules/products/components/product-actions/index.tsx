@@ -15,6 +15,7 @@ import { Transition } from "@headlessui/react"
 
 type ProductActionsProps = {
   product: Product
+  variant: Variant
 }
 const medusa = new Medusa({ baseUrl: MEDUSA_BACKEND_URL, maxRetries: 3 })
 
@@ -44,12 +45,12 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   /**
    *  this function get datas from canvas
    */
-  const AddCustomToCart = (variant : Variant) => {
+  const AddCustomToCart = (variant: Variant) => {
     setIsShowing(true)
     setAlertText("adding custom product to cart...")
     setAlertType("info")
     console.log(localStorage.getItem("nftsArray")?.length)
-    console.log(variant)
+    console.log(variant.id)
     html2canvas(document.querySelector("#canvafull")!, {
       allowTaint: true,
     }).then(async (canvas) => {
@@ -152,7 +153,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         )}
       </div>
 
-      <Button onClick={isCustom ? AddCustomToCart : addToCart}>
+      <Button onClick={() => isCustom ? AddCustomToCart : addToCart}>
         {!inStock ? "Out of stock" : "Add to cart"}
       </Button>
       <Transition
