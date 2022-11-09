@@ -24,8 +24,9 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   const [alertText, setAlertText] = useState("")
   const [alertType, setAlertType] = useState("info")
   const [isShowing, setIsShowing] = useState(false)
+  const [isCustom, setIsCustom] = useState(false)
   console.log(cart.cart) 
-  var isCustom = false
+
   const {
     updateOptions,
     addToCart,
@@ -39,7 +40,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
 
   product.tags.forEach(function (value) {
     if (value.value == "Custom") {
-      isCustom = true
+      setIsCustom(true)
     }
   })
   /**
