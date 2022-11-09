@@ -12,7 +12,6 @@ import { MEDUSA_BACKEND_URL } from "@lib/config"
 import { useCart } from "medusa-react"
 import Items from "@modules/order/components/items"
 import { Transition } from "@headlessui/react"
-import { cp } from "fs/promises"
 
 type ProductActionsProps = {
   product: Product
@@ -24,9 +23,8 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   const [alertText, setAlertText] = useState("")
   const [alertType, setAlertType] = useState("info")
   const [isShowing, setIsShowing] = useState(false)
-  const [isCustom, setIsCustom] = useState(false)
   console.log(cart.cart) 
-
+  var isCustom = false
   const {
     updateOptions,
     addToCart,
@@ -39,15 +37,14 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   const price = useProductPrice({ id: product.id, variantId: variant?.id })
 
   product.tags.forEach(function (value) {
-    if (value.value == "Custom") {
-      setIsCustom(true)
+    if (value.value == "Custom" || value.value == "custom") {
+      isCustom = true
     }
   })
   /**
    *  this function get datas from canvas
    */
   const AddCustomToCart = (variant : any) => {
-    console.log("updating")
     setIsShowing(true)
     setAlertText("adding custom product to cart...")
     setAlertType("info")
@@ -77,17 +74,14 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   const sendLink = (url: string, nfts: string | null) => {
     var variant_id = variant?.id
     if (cart.cart && variant_id ) {
-    console.log("isupdating"),
     medusa.carts.lineItems.create(cart.cart.id, {
       variant_id,
       quantity: 1,
       metadata: { model: url, sources: nfts },
-    }),
-    console.log(cart.cart),
-    console.log("isupdated")
+    })
   }
-    // window.location.reload()
-    // localStorage?.setItem("nftsArray", "") 
+    window.location.reload()
+    localStorage?.setItem("nftsArray", "") 
   }
 
   const selectedPrice = useMemo(() => {
@@ -155,10 +149,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         )}
       </div>
 
-      {/* <Button onClick={isCustom ? AddCustomToCart : addToCart}>
-        {!inStock ? "Out of stock" : "Add to cart"}
-      </Button> */}
-      <Button onClick={() => console.log(isCustom)}>
+      <Button onClick={isCustom ? AddCustomToCart : addToCart}>
         {!inStock ? "Out of stock" : "Add to cart"}
       </Button>
       <Transition
