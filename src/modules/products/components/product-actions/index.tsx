@@ -41,6 +41,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
       isCustom = true
     }
   })
+
   /**
    *  this function get datas from canvas
    */
@@ -86,6 +87,18 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
     window.location.reload()
     localStorage?.setItem("nftsArray", "") 
   }
+
+  /**
+   *  this function triggers the right function for each cart type
+   */
+     const typeOfCart = () => {
+      if (isCustom) {
+        AddCustomToCart
+      }else{
+        addToCart
+      }
+    }
+
 
   const selectedPrice = useMemo(() => {
     const { variantPrice, cheapestPrice } = price
@@ -152,7 +165,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         )}
       </div>
 
-      <Button onClick={() => isCustom ? AddCustomToCart : addToCart}>
+      <Button onClick={() => typeOfCart}>
         {!inStock ? "Out of stock" : "Add to cart"}
       </Button>
       <Transition
