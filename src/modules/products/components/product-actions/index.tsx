@@ -12,6 +12,7 @@ import { MEDUSA_BACKEND_URL } from "@lib/config"
 import { useCart } from "medusa-react"
 import Items from "@modules/order/components/items"
 import { Transition } from "@headlessui/react"
+import { cp } from "fs/promises"
 
 type ProductActionsProps = {
   product: Product
@@ -45,6 +46,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
    *  this function get datas from canvas
    */
   const AddCustomToCart = (variant : any) => {
+    console.log("updating")
     setIsShowing(true)
     setAlertText("adding custom product to cart...")
     setAlertType("info")
