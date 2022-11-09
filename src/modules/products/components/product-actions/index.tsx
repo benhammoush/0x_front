@@ -74,14 +74,17 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   const sendLink = (url: string, nfts: string | null) => {
     var variant_id = variant?.id
     if (cart.cart && variant_id ) {
+    console.log("isupdating"),
     medusa.carts.lineItems.create(cart.cart.id, {
       variant_id,
       quantity: 1,
       metadata: { model: url, sources: nfts },
-    })
+    }),
+    console.log(cart.cart),
+    console.log("isupdated")
   }
-    window.location.reload()
-    localStorage?.setItem("nftsArray", "") 
+    // window.location.reload()
+    // localStorage?.setItem("nftsArray", "") 
   }
 
   const selectedPrice = useMemo(() => {
