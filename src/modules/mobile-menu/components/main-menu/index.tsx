@@ -77,11 +77,11 @@ const MainMenu = () => {
             {collections ? (
               <>
                 {collections.map((collection) => (
-                  <li key={collection.id} className="p-4 bg-gray-50">
+                  <li key={collection.id} className="p-4 bg-gray-50 dark:bg-darkbg">
                     <Link href={`/collections/${collection.id}`}>
                       <a>
                         <button
-                          className="flex items-center justify-between w-full"
+                          className="flex items-center justify-between w-full dark:text-white"
                           onClick={close}
                         >
                           <span className="sr-only">
