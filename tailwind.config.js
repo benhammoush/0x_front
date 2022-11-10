@@ -39,8 +39,8 @@ module.exports = {
         green: {
           DEFAULT: "#56FBB1",
         },
-        darkbg: "#191B1F",
-        mediumbg: "#212326",
+        darkbg: "#111827",
+        mediumbg: "#1f2937",
         darkborder: "#ffffff14",
         gray3: "#212121",
         gray4: "#2a2b3d",

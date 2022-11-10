@@ -4,16 +4,30 @@ import Image from "next/image"
 const Hero = () => {
   return (
     <div className="relative w-full overflow-hidden h-[90%]">
-      <div className="absolute inset-0 wide:ml-[25vw] z-10 flex flex-col items-center justify-center text-center text-white small:text-left small:justify-end small:items-start small:p-32">
-        <h1 className="mb-4 text-xl-semi md:text-2xl-semi drop-shadow-md shadow-black">
-          0 | X Streetwear
-        </h1>
-        <p className="text-base-regular md:max-w-[32rem] max-w-[15rem] mb-6 drop-shadow-md shadow-black">
-          This year, our new summer collection will shelter you from the harsh
-          elements of a world that doesn&apos;t care if you live or die.
-        </p>
-        <UnderlineLink href="/store">Explore products</UnderlineLink>
+<section className="absolute z-10 items-center w-full text-white">
+  <div
+    className="max-w-screen-xl px-4 py-32 mx-auto lg:flex lg:h-screen lg:items-center"
+  >
+    <div className="max-w-3xl mx-auto text-center">
+      <h1
+        className="text-xs font-normal tracking-widest text-white uppercase sm:text-5xl"
+      >
+       Lorem ipsum.
+      </h1>
+
+      <p className="max-w-xl mx-auto mt-4 text-gray-200 sm:text-xl sm:leading-relaxed">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
+        tenetur fuga ducimus numquam ea!
+      </p>
+
+      <div className="flex flex-wrap justify-center gap-4 mt-8">
+        <UnderlineLink href="/products/custom-tshirt">
+              Try now !
+        </UnderlineLink>
       </div>
+    </div>
+  </div>
+</section>
       <video
         id="vid" 
         className="object-none max-h-screen min-h-screen mx-auto md:object-fill aspect-video saturate-100 md:w-screen brightness-100"
