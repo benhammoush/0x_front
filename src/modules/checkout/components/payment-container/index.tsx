@@ -23,7 +23,7 @@ const PaymentInfoMap: Record<string, { title: string; description: string }> = {
   },
   manual: {
     title: "Crypto",
-    description: "Secure payment with web3 wallet",
+    description: "Secure payment with metamask",
   },
 }
 
