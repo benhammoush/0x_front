@@ -92,6 +92,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
    *  this function triggers the right function for each cart type
    */
      const typeOfCart = () => {
+      console.log("custom " && isCustom)
       if (isCustom) {
         AddCustomToCart
       }else{
