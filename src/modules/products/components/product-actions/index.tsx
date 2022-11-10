@@ -43,7 +43,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   })
 
   /**
-   *  this function get datas from canvas
+   *  get datas from canvas
    */
   const AddCustomToCart = (variant : Variant | undefined) => {
     setIsShowing(true)
@@ -70,7 +70,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   }
 
   /**
-   *  this function adds the custom product to cart with parameters neccessary
+   *  adds the custom product to cart 
    */
   const sendLink = (url: string, nfts: string | null, variant: Variant | undefined) => {
     var variant_id = variant?.id
@@ -86,7 +86,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   }
 
   /**
-   *  this function triggers the right function for each cart type
+   *  triggers for each cart type
    */
      const typeOfCart = () => {
       if (isCustom) {
