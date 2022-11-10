@@ -94,8 +94,10 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
      const typeOfCart = () => {
       console.log("custom " && isCustom)
       if (isCustom) {
+        console.log("AddCustomToCart"),
         AddCustomToCart
       }else{
+        console.log("addToCart"),
         addToCart
       }
     }
