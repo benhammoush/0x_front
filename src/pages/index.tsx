@@ -13,12 +13,12 @@ const Home: NextPageWithLayout = () => {
     <>
       <Head
         title="Home"
-        description="Shop all available models only at the 0X. Worldwide Shipping. Secure Payment."
+        description="Discover the latest clothing inovation out 0x Clothes."
       />
       <Hero />
-      {/* CLOTHES EUROPE */}
+      {/* CLOTHES EUROPE
       <section className="w-full py-10 bg-gray-50 dark:bg-darkbg dark:text-white">
-        <div className="px-10 mx-auto max-w-7xl">
+        <div className="w-full px-10 mx-auto md:max-w-7xl">
           <div className="px-10 mb-8 space-y-5 lg:mb-16 lg:px-0 lg:text-center">
             <h6 className="mt-0 mb-2 text-xs font-normal tracking-widest text-gray-400 uppercase dark:text-gray-200">
               Responsible brand
@@ -74,7 +74,7 @@ const Home: NextPageWithLayout = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <FeaturedProducts />
       {/* PRINT NFT */}
       <section className="relative block py-20 overflow-hidden leading-6 text-left text-black bg-no-repeat bg-cover bg-gray-50 dark:bg-darkbg dark:text-white">
