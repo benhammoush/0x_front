@@ -58,8 +58,6 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
       ) {
         const url = canvas.toDataURL("image/jpeg", 0.5)
         const nfts = JSON.parse(localStorage.getItem("nftsArray")!)
-        console.log(nfts)
-        console.log(url)
          sendLink(url, nfts, variant)
       } else {
         setAlertText("No Nfts added or size not specified !")
@@ -83,20 +81,17 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
       metadata: { model: url, sources: nfts },
     })
   }
-    // window.location.reload()
-    // localStorage?.setItem("nftsArray", "") 
+    window.location.reload()
+    localStorage?.setItem("nftsArray", "") 
   }
 
   /**
    *  this function triggers the right function for each cart type
    */
      const typeOfCart = () => {
-      console.log("custom " && isCustom)
       if (isCustom) {
-        console.log("AddCustomToCart"),
         AddCustomToCart(variant)
       }else{
-        console.log("addToCart"),
         addToCart
       }
     }

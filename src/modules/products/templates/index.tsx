@@ -61,8 +61,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
           scaleY: 0.4,
           scaleX: 0.4,
           transparentCorners: false,
-          borderColor: "white",
-          cornerColor: "white",
+          borderColor: "black",
+          cornerColor: "black",
           cornerSize: 6,
         })
         myImg.objectCaching = false
