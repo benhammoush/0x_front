@@ -45,7 +45,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   /**
    *  this function get datas from canvas
    */
-  const AddCustomToCart = (variant : Variant) => {
+  const AddCustomToCart = (variant : Variant | undefined) => {
     setIsShowing(true)
     setAlertText("adding custom product to cart...")
     setAlertType("info")
@@ -56,7 +56,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
     }).then(async (canvas) => {
       if (
         localStorage.getItem("nftsArray")?.length! > 0 &&
-        variant.id.length > 0
+        variant
       ) {
         const url = canvas.toDataURL("image/jpeg", 0.5)
         const nfts = JSON.parse(localStorage.getItem("nftsArray")!)
@@ -95,7 +95,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
       console.log("custom " && isCustom)
       if (isCustom) {
         console.log("AddCustomToCart"),
-        AddCustomToCart
+        AddCustomToCart(variant)
       }else{
         console.log("addToCart"),
         addToCart
