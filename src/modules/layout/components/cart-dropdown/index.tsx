@@ -22,7 +22,7 @@ const CartDropdown = () => {
     <div className="z-50 h-full" onMouseEnter={open} onMouseLeave={close}>
       <Popover className="relative h-full">
         <Link href="/cart" passHref>
-          <Popover.Button className="h-full">{`My Bag (${totalItems})`}</Popover.Button>
+          <Popover.Button className="h-full tracking-widest uppercase">{`Bag (${totalItems})`}</Popover.Button>
         </Link>
         <Transition
           show={state}
@@ -39,7 +39,7 @@ const CartDropdown = () => {
             className="hidden small:block absolute top-[calc(100%+1px)] right-0 dark:bg-mediumbg bg-white rounded border-x border-b border-gray-200 dark:border-darkborder w-[382px] dark:text-white text-gray-900"
           >
             <div className="flex items-center justify-center p-4">
-              <h3 className="text-large-semi">Shopping Bag</h3>
+              <h3 className="tracking-widest uppercase text-large-semi">Shopping Bag</h3>
             </div>
             {cart && items?.length ? (
               <>

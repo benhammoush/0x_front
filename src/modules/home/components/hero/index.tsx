@@ -6,9 +6,9 @@ const Hero = () => {
     <div className="relative w-full overflow-hidden h-[90%]">
       <section className="absolute z-10 items-center w-full text-white mt-36 md:mt-0">
         <div className="max-w-screen-xl px-4 py-32 mx-auto lg:flex lg:h-screen lg:items-center">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl py-20 mx-auto text-center backdrop-blur-[2px]">
             <h1 className="text-5xl font-normal tracking-widest text-white uppercase">
-              Lorem ipsum.
+              0 | X
             </h1>
 
             <p className="max-w-xl mx-auto mt-4 text-gray-200 sm:text-xl sm:leading-relaxed">
@@ -18,7 +18,7 @@ const Hero = () => {
 
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <UnderlineLink href="/products/custom-tshirt">
-                Try now !
+                SHOP
               </UnderlineLink>
             </div>
           </div>

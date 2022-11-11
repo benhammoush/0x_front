@@ -113,7 +113,7 @@ const Nav = () => {
             <div className="items-center hidden h-full small:flex gap-x-6">
               {process.env.FEATURE_SEARCH_ENABLED && <DesktopSearchModal />}
               <Link href="/account">
-                <a>Account</a>
+                <a className="tracking-widest uppercase">Account</a>
               </Link>
             </div>
             <CartDropdown />
