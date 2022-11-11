@@ -28,7 +28,7 @@ const Home: NextPageWithLayout = () => {
               </p>
               <p className="max-w-full mt-0 mb-10 text-lg leading-8 text-gray-400">
                 {" "}
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
               </p>
             </div>
           </div>
