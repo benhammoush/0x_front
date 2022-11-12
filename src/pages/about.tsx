@@ -72,6 +72,13 @@ const Home: NextPageWithLayout = () => {
         </div>
       </section>
       <section className="box-border text-black bg-gray-50 pb-30 dark:bg-darkbg dark:text-white">
+      <div className="items-center justify-center w-full">
+            <div className="relative flex-none w-full px-5 mt-0 text-center">
+              <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
+                PAYMENT SOLUTIONS
+              </h3>
+            </div>
+          </div>
         <div className="box-border leading-7 md:pb-20">
           <div className="relative w-full px-10 mx-auto text-gray-900 md:px-5">
             <div className="flex flex-wrap max-w-6xl px-10 py-10 mx-auto mt-0">
@@ -147,7 +154,7 @@ const Home: NextPageWithLayout = () => {
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 lg:mb-0">
                   {" "}
-                  any credit card
+                  Conventionnal payment aswell
                 </p>
               </div>
             </div>
