@@ -60,10 +60,10 @@ const Home: NextPageWithLayout = () => {
           </div>
           <div className="flex flex-col items-start justify-center h-full py-16 pl-16 pr-16 space-y-4 saturate-80 backdrop-brightness-10 lg:py-0 lg:pr-20">
             <h3 className="text-xl font-normal tracking-widest uppercase dark:text-white">
-              PRINT NFTS
+              USE NFTS
             </h3>
             <p className="text-lg text-gray-600 dark:text-gray-400">
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.{" "}
+            Connect using Metamask and personalize as you want. Double click to delete. Express yourself.{" "}
             </p>
             <UnderlineLink href="/products/custom-tshirt">
               Try now !
@@ -83,8 +83,7 @@ const Home: NextPageWithLayout = () => {
                   Arbitrum
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 md:mb-0">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry..
+                  ETH, USDT, USDC
                 </p>
               </div>
 
@@ -96,8 +95,7 @@ const Home: NextPageWithLayout = () => {
                   Avalanche
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 md:mb-0">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  AVAX, DAI, USDT
                 </p>
               </div>
 
@@ -110,8 +108,7 @@ const Home: NextPageWithLayout = () => {
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400">
                   {" "}
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  BNB, USDT, USDC
                 </p>
               </div>
 
@@ -124,8 +121,7 @@ const Home: NextPageWithLayout = () => {
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 lg:mb-0">
                   {" "}
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  ETH, USDT, USDC
                 </p>
               </div>
 
@@ -138,8 +134,7 @@ const Home: NextPageWithLayout = () => {
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 md:mb-0">
                   {" "}
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  MATIC, DAI, JEUR
                 </p>
               </div>
 
@@ -152,8 +147,7 @@ const Home: NextPageWithLayout = () => {
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 lg:mb-0">
                   {" "}
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  any credit card
                 </p>
               </div>
             </div>
