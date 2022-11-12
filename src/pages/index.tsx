@@ -6,9 +6,10 @@ import Layout from "@modules/layout/templates"
 import { ReactElement } from "react"
 import { NextPageWithLayout } from "types/global"
 import Image from "next/image"
-
+import { useRouter } from "next/router"
 
 const Home: NextPageWithLayout = () => {
+  const { push } = useRouter()
   return (
     <>
       <Head
@@ -16,72 +17,13 @@ const Home: NextPageWithLayout = () => {
         description="Discover the latest clothing inovation out 0x Clothes."
       />
       <Hero />
-      <section className="relative block py-10 overflow-hidden leading-6 text-left text-black bg-no-repeat bg-cover bg-gray-50 dark:bg-darkbg dark:text-white">
+      <section className="relative block leading-6 text-left text-black bg-no-repeat bg-cover bg-gray-50 dark:bg-darkbg dark:text-white">
         <div className="w-full max-w-5xl px-8 mx-auto leading-6 text-left xl:px-0">
-          <div className="flex flex-wrap items-center justify-center flex-1 text-center text-white lg:text-left">
-            <div className="relative flex-none w-full max-w-full px-5 mt-0 mb-16 text-center lg:mb-18 md:w-5/6 md:flex-none lg:w-2/3 lg:flex-none">
-              <h6 className="mt-0 mb-2 text-xs font-normal tracking-widest text-gray-400 uppercase">
-                DIGITAL
-              </h6>
-              <p className="mb-4 text-gray-900 dark:text-white text-2xl-regular">
-              ART & PAYMENT
-              </p>
-              <p className="max-w-full mt-0 mb-10 text-lg leading-8 text-gray-400">
-                {" "}
-              Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="grid w-[80%] max-w-[1400px] h-full   mx-auto rounded-md   overflow-hidden md:grid-cols-3">
-          <div className="flex flex-wrap justify-center max-w-5xl col-span-2 mx-auto text-white md:scale-75 ov drop-shadow-2xl">
-            <div className="relative w-full px-4 mt-5 leading-6 text-left xl:flex-shrink-0 xl:flex-grow-0 md:mt-0">
-
-            <div className="relative w-full px-4 leading-6 text-left xl:flex-shrink-0 xl:flex-grow-0">
-              <div className="relative flex h-10 items-center justify-start space-x-1.5 overflow-hidden rounded-t-xl bg-ui-medium dark:bg-darkbg">
-                <div className="relative z-10 w-3 h-3 ml-3 bg-green-500 rounded-full dark:bg-gray-700"></div>
-                <div className="relative z-10 w-3 h-3 bg-orange-500 rounded-full dark:bg-gray-700"></div>
-                <div className="relative z-10 w-3 h-3 bg-red-500 rounded-full dark:bg-gray-700"></div>
-              </div>
-
-              <img
-                src="/exdesignwhite.png"
-                alt=""
-                className="block h-auto max-w-full text-white align-middle border-none rounded-lg dark:hidden"
-              />
-
-              <img
-                src="/exdesign.png"
-                alt=""
-                className="hidden h-auto max-w-full text-white align-middle border-none rounded-lg dark:block"
-              />
-            </div>
-
-            </div>
-          </div>
-          <div className="flex flex-col items-start justify-center h-full py-16 pl-16 pr-16 space-y-4 saturate-80 backdrop-brightness-10 lg:py-0 lg:pr-20">
-            <h3 className="text-xl font-normal tracking-widest uppercase dark:text-white">
-              PRINT NFTS
-            </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.{" "}
-            </p>
-            <UnderlineLink href="/products/custom-tshirt">
-              Try now !
-            </UnderlineLink>
-          </div>
-        </div>
-      </section>
-      <section className="box-border text-black bg-gray-50 pb-30 dark:bg-darkbg dark:text-white">
-        <div className="box-border leading-7 md:pb-20">
-          <div className="relative w-full px-10 mx-auto text-gray-900 md:px-5">
-            <div className="flex flex-wrap max-w-6xl px-10 py-10 mx-auto mt-0">
+          <div className="items-center justify-center w-full pb-20">
+            <div className="grid max-w-4xl pt-20 mx-auto md:flex md:pb-96">
               <div className="relative flex-none w-full max-w-full px-5 mt-0 text-center md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
-                <div className="mb-4">
-                  <img src="./Arbitrum.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
-                </div>
                 <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
-                  Arbitrum
+                  Delivery
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 md:mb-0">
                   Lorem Ipsum is simply dummy text of the printing and
@@ -90,136 +32,96 @@ const Home: NextPageWithLayout = () => {
               </div>
 
               <div className="relative flex-none w-full max-w-full px-5 mt-0 text-center md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
-                <div className="mb-4">
-                  <img src="./Avalanche.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
-                </div>
                 <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
-                  Avalanche
+                  Digital
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 md:mb-0">
                   Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  typesetting industry..
                 </p>
               </div>
 
-              <div className="relative flex-none w-full max-w-full px-5 mt-10 text-center md:w-1/2 md:flex-none lg:mt-0 lg:w-1/3 lg:flex-none">
-                <div className="mb-4">
-                  <img src="./Binance.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
-                </div>
+              <div className="relative flex-none w-full max-w-full px-5 mt-0 text-center md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
                 <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
-                  Binance Smart Chain
-                </h3>
-                <p className="mt-0 mb-12 text-gray-400">
-                  {" "}
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-
-              <div className="relative flex-none w-full max-w-full px-5 text-center md:mt-10 md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
-                <div className="mb-4">
-                  <img src="./Ethereum.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
-                </div>
-                <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
-                  Ethereum
-                </h3>
-                <p className="mt-0 mb-12 text-gray-400 lg:mb-0">
-                  {" "}
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-
-              <div className="relative flex-none w-full max-w-full px-5 text-center md:mt-10 md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
-                <div className="mb-4">
-                  <img src="./Polygon.svg" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
-                </div>
-                <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
-                  Polygon
+                  Conscienscous
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 md:mb-0">
-                  {" "}
                   Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-
-              <div className="relative flex-none w-full max-w-full px-5 text-center md:mt-10 md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
-                <div className="mb-4">
-                  <img src="./stripe.webp" className="w-auto h-12 mx-auto duration-200 hover:scale-110" />
-                </div>
-                <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
-                  Stripe
-                </h3>
-                <p className="mt-0 mb-12 text-gray-400 lg:mb-0">
-                  {" "}
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  typesetting industry..
                 </p>
               </div>
             </div>
           </div>
+          <img
+            src="/cta_0x.jpg"
+            alt=""
+            className="text-white align-middle scale-105 border-none pb-28 md:pb-72 md:scale-150"
+          />
+          <div className="items-center justify-center w-full">
+            <div className="relative flex-none w-full px-5 mt-0 text-center">
+              <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
+                Collections
+              </h3>
+              <p className="mt-0 mb-12 text-gray-400 md:mb-0">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry..
+              </p>
+            </div>
+          </div>
         </div>
-      </section>
-      <section className="w-full py-10 bg-gray-50 dark:bg-darkbg dark:text-white">
-        <div className="w-full px-10 mx-auto md:max-w-7xl">
-          <div className="px-10 mb-8 space-y-5 text-center lg:mb-16 lg:px-0">
-            <h6 className="mt-0 mb-2 text-xs font-normal tracking-widest text-gray-400 uppercase dark:text-gray-400">
-            conscientious
-            </h6>
-            <p className="mb-4 text-gray-900 dark:text-white text-2xl-regular">
-              HIGH QUALITY PRODUCTION
-            </p>
-            <p className="mt-0 mb-10 text-lg leading-8 text-gray-400">
-              {" "}
+        <div className="items-center justify-center w-full bg-gray-50 dark:bg-darkbg dark:text-white">
+          <div className="grid items-center max-w-5xl gap-20 py-20 mx-auto md:flex">
+            <div className="w-full">
+              <figure>
+                <img
+                  src="/cta_one.jpg"
+                  onClick={() =>
+                    push("/collections/pcol_01GHHQXJGESFRPF67XGH0VYM4N")
+                  }
+                  className="duration-500 hover:border-2 dark:hover:border-white hover:border-black md:hover:scale-105"
+                  alt="cta_one"
+                />
+              </figure>
+              <div className="text-center card-body">
+                <h2 className="absolute mt-4 font-semibold tracking-widest uppercase card-title">
+                  Classics
+                </h2>
+                <div className="justify-end card-actions"></div>
+              </div>
+            </div>
+            <div className="w-full">
+              <figure>
+                <img
+                  src="/cta_two.jpg"
+                  onClick={() =>
+                    push("collections/pcol_01GHHQY4A022RSX06W8PJB37N8")
+                  }
+                  className="duration-500 hover:border-2 dark:hover:border-white hover:border-black md:hover:scale-105"
+                  alt="cta_two"
+                />
+              </figure>
+              <div className="text-center card-body">
+                <h2 className="absolute mt-4 font-semibold tracking-widest uppercase card-title">
+                  NFTS
+                </h2>
+                <div className="justify-end card-actions"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="items-center justify-center w-full py-10">
+          <div className="relative flex-none w-full px-5 mt-0 text-center">
+            <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
+              Latest products
+            </h3>
+            <p className="mt-0 mb-12 text-gray-400 md:mb-0">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              industry..
             </p>
           </div>
-          <div className="grid overflow-hidden rounded-lg">
-            <div className="grid items-center lg:grid-cols-2">
-              <div className="flex flex-col items-start justify-center h-full py-16 pl-16 pr-16 space-y-4 saturate-80 backdrop-brightness-10 lg:py-0 lg:pr-20">
-                <h3 className="text-xl font-normal tracking-widest uppercase dark:text-white">
-                  Premium textile
-                </h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry
-                  standard dummy text ever since the 1500s{" "}
-                </p>
-              </div>
-              <div className="mx-5 my-5 overflow-hidden scale-90 bg-gray-100 rounded-md h-96 w-30">
-              <img
-                  src="./work2.webp"
-                  className="object-cover w-full h-full duration-500 hover:scale-110"
-                  alt=""
-                />
-              </div>
-            </div>
-
-            <div className="grid items-center lg:grid-cols-2">
-              <div className="order-last mx-5 my-5 overflow-hidden scale-90 bg-gray-100 rounded-md h-96 lg:order-first">
-              <img
-                  src="./work.webp"
-                  className="object-cover w-full h-full duration-500 hover:scale-110"
-                  alt=""
-                />
-              </div>
-              <div className="flex flex-col items-start justify-center h-full py-16 pl-16 pr-16 space-y-4 lg:py-0 lg:pr-20">
-                <h3 className="text-xl font-normal tracking-widest uppercase dark:text-white">
-                  From Europe
-                </h3>
-                <p className="text-lg text-left text-gray-600 dark:text-gray-400">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry
-                  standard dummy text ever since the 1500s{" "}
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
+        <FeaturedProducts />
       </section>
-      <FeaturedProducts />
     </>
   )
 }

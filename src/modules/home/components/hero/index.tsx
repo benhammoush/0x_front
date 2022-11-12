@@ -11,11 +11,6 @@ const Hero = () => {
               0 | X
             </h1>
 
-            <p className="max-w-xl mx-auto mt-4 text-gray-200 sm:text-xl sm:leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-              illo tenetur fuga ducimus numquam ea!
-            </p>
-
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <UnderlineLink href="/products/custom-tshirt">
                 SHOP
