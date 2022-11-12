@@ -12,7 +12,7 @@ const Hero = () => {
             </h1>
 
             <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <UnderlineLink href="/products/custom-tshirt">
+              <UnderlineLink href="/store">
                 SHOP
               </UnderlineLink>
             </div>

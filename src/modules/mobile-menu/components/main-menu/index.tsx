@@ -61,6 +61,18 @@ const MainMenu = () => {
         <div className="flex flex-col flex-1 text-gray-900 text-large-regular">
           <ul className="flex flex-col gap-y-2">
             <li className="p-4 bg-gray-50 dark:bg-darkbg">
+            <Link href="/">
+                <a>
+                  <button
+                    className="flex items-center justify-between w-full dark:text-white"
+                    onClick={close}
+                  >
+                    <span className="sr-only">Go to Home</span>
+                    <span>Home</span>
+                    <ChevronDown className="-rotate-90" />
+                  </button>
+                </a>
+              </Link>
               <Link href="/store">
                 <a>
                   <button
@@ -69,6 +81,18 @@ const MainMenu = () => {
                   >
                     <span className="sr-only">Go to Store</span>
                     <span>Store</span>
+                    <ChevronDown className="-rotate-90" />
+                  </button>
+                </a>
+              </Link>
+              <Link href="/about">
+                <a>
+                  <button
+                    className="flex items-center justify-between w-full dark:text-white"
+                    onClick={close}
+                  >
+                    <span className="sr-only">Go to About</span>
+                    <span>About</span>
                     <ChevronDown className="-rotate-90" />
                   </button>
                 </a>
@@ -119,7 +143,7 @@ const MainMenu = () => {
               </div>
             ) : (
               <div className="flex flex-col gap-y-4">
-                <span className="text-gray-700 uppercase">Signed in as</span>
+                <span className="text-gray-700 uppercase dark:text-gray-400">Signed in as</span>
                 <Link href={`/account`} passHref>
                   <a>
                     <button

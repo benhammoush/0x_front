@@ -22,7 +22,7 @@ const DropdownMenu = () => {
 
   return (
     <div className="flex h-full gap-5">
-            <button
+      <button
         className={clsx(
           "relative h-full font-normal leading-6 tracking-widest uppercase flex items-center transition-all ease-out duration-200"
         )}
