@@ -7,7 +7,7 @@ class MyDocument extends Document {
     const { hostname } = new URL(uri)
 
     return (
-      <Html lang="en">
+      <Html className="scroll-smooth" lang="en">
         <Head>
           <link rel="preconnect" href={`//${hostname}`} crossOrigin="true" />
           <link rel="dns-prefetch" href={`//${hostname}`} />

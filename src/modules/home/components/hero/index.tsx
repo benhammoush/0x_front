@@ -7,7 +7,7 @@ const Hero = () => {
       <section className="absolute z-10 items-center w-full text-white mt-36 md:mt-0">
         <div className="max-w-screen-xl px-4 py-32 mx-auto lg:flex lg:h-screen lg:items-center">
           <div className="max-w-3xl py-20 mx-auto text-center backdrop-blur-[2px]">
-            <h1 className="text-5xl font-normal tracking-widest text-white uppercase">
+            <h1 className="font-normal tracking-widest text-white uppercase text-7xl">
               0 | X
             </h1>
 

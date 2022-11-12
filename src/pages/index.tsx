@@ -11,7 +11,7 @@ import { useRouter } from "next/router"
 const Home: NextPageWithLayout = () => {
   const { push } = useRouter()
   return (
-    <>
+    <div className="scroll-smooth">
       <Head
         title="Home"
         description="Discover the latest clothing inovation out 0x Clothes."
@@ -52,23 +52,19 @@ const Home: NextPageWithLayout = () => {
           <img
             src="/cta_0x.jpg"
             alt=""
-            className="text-white align-middle scale-105 border-none pb-28 md:pb-72 md:scale-150"
+            className="text-white align-middle scale-105 border-none pb-28 h-[1000px] md:h-auto w-screen md:w-auto md:pb-72 md:scale-150"
           />
           <div className="items-center justify-center w-full">
             <div className="relative flex-none w-full px-5 mt-0 text-center">
               <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
                 Collections
               </h3>
-              <p className="mt-0 mb-12 text-gray-400 md:mb-0">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry..
-              </p>
             </div>
           </div>
         </div>
         <div className="items-center justify-center w-full bg-gray-50 dark:bg-darkbg dark:text-white">
           <div className="grid items-center max-w-5xl gap-20 py-20 mx-auto md:flex">
-            <div className="w-full">
+            <div className="md:w-full w-[80vw] mx-auto" >
               <figure>
                 <img
                   src="/cta_one.jpg"
@@ -86,7 +82,7 @@ const Home: NextPageWithLayout = () => {
                 <div className="justify-end card-actions"></div>
               </div>
             </div>
-            <div className="w-full">
+            <div className="md:w-full w-[80vw] mx-auto">
               <figure>
                 <img
                   src="/cta_two.jpg"
@@ -111,15 +107,11 @@ const Home: NextPageWithLayout = () => {
             <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
               Latest products
             </h3>
-            <p className="mt-0 mb-12 text-gray-400 md:mb-0">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry..
-            </p>
           </div>
         </div>
         <FeaturedProducts />
       </section>
-    </>
+    </div>
   )
 }
 
