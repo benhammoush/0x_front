@@ -73,19 +73,9 @@ const MainMenu = () => {
                   </button>
                 </a>
               </Link>
-              <Link href="/store">
-                <a>
-                  <button
-                    className="flex items-center justify-between w-full dark:text-white"
-                    onClick={close}
-                  >
-                    <span className="sr-only">Go to Store</span>
-                    <span>Store</span>
-                    <ChevronDown className="-rotate-90" />
-                  </button>
-                </a>
-              </Link>
-              <Link href="/about">
+            </li>
+            <li className="p-4 bg-gray-50 dark:bg-darkbg">
+            <Link href="/about">
                 <a>
                   <button
                     className="flex items-center justify-between w-full dark:text-white"
@@ -93,6 +83,20 @@ const MainMenu = () => {
                   >
                     <span className="sr-only">Go to About</span>
                     <span>About</span>
+                    <ChevronDown className="-rotate-90" />
+                  </button>
+                </a>
+              </Link>
+            </li>
+            <li className="p-4 bg-gray-50 dark:bg-darkbg">
+            <Link href="/store">
+                <a>
+                  <button
+                    className="flex items-center justify-between w-full dark:text-white"
+                    onClick={close}
+                  >
+                    <span className="sr-only">Go to Store</span>
+                    <span>Store</span>
                     <ChevronDown className="-rotate-90" />
                   </button>
                 </a>

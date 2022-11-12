@@ -22,12 +22,11 @@ const Home: NextPageWithLayout = () => {
           <div className="items-center justify-center w-full pb-20">
             <div className="grid max-w-4xl pt-20 mx-auto md:flex md:pb-96">
               <div className="relative flex-none w-full max-w-full px-5 mt-0 text-center md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
-                <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
-                  Delivery
+              <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
+                  Conscienscous
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 md:mb-0">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry..
+                  Clothes are made in Europe, certified GOTS*. <h4 className="text-xs italic">Global Organic Textile Standard</h4>
                 </p>
               </div>
 
@@ -36,18 +35,16 @@ const Home: NextPageWithLayout = () => {
                   Digital
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 md:mb-0">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry..
+                  Be able to pay using most common tokens and personalize clothes using nfts. 
                 </p>
               </div>
 
               <div className="relative flex-none w-full max-w-full px-5 mt-0 text-center md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
-                <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
-                  Conscienscous
+              <h3 className="mt-0 mb-2 text-xl font-normal tracking-widest text-black uppercase dark:text-white">
+                  Delivery
                 </h3>
                 <p className="mt-0 mb-12 text-gray-400 md:mb-0">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry..
+                  Your package will arrive in 3-5 business days at your pick up location or in the comfort of your home.
                 </p>
               </div>
             </div>
