@@ -107,7 +107,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
     <div className="flex flex-col gap-y-2">
       {product.collection && (
         <Link href={`/collections/${product.collection.id}`}>
-          <a className="text-gray-700 text-small-regular">
+          <a className="text-gray-700 dark:text-gray-300 text-small-regular">
             {product.collection.title}
           </a>
         </Link>
