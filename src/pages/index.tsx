@@ -11,13 +11,13 @@ import { useRouter } from "next/router"
 const Home: NextPageWithLayout = () => {
   const { push } = useRouter()
   return (
-    <div className="scroll-smooth">
+    <div className="scroll-smooth bg-gray-50 dark:bg-darkbg">
       <Head
         title="Home"
         description="Discover the latest clothing inovation out 0x Clothes."
       />
       <Hero />
-      <section className="relative bg-[url('/bg-0x.png')] block leading-6 text-left text-black  dark:bg-darkbg dark:text-white">
+      <section className="relative bg-[url('/bg-0x.png')] dark:bg-[url('/bg-0x_b.png')] block leading-6 text-left text-black   dark:text-white">
         <div className="w-full max-w-5xl px-8 mx-auto leading-6 text-left xl:px-0">
           <div className="items-center justify-center w-full pb-20">
             <div className="grid max-w-4xl pt-20 mx-auto md:flex md:pb-96">
@@ -62,7 +62,7 @@ const Home: NextPageWithLayout = () => {
             </div>
           </div>
         </div>
-        <div className="items-center justify-center w-full bg-none dark:bg-darkbg dark:text-white">
+        <div className="items-center justify-center w-full bg-none dark:text-white">
           <div className="grid items-center max-w-5xl gap-20 py-20 mx-auto md:flex">
             <div className="md:w-full w-[80vw] mx-auto" >
               <figure>

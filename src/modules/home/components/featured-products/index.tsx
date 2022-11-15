@@ -7,7 +7,7 @@ const FeaturedProducts = () => {
   const { data } = useFeaturedProductsQuery()
 
   return (
-    <div className="bg-none dark:bg-darkbg dark:text-white">
+    <div className="bg-none dark:text-white">
       <div className="py-12 content-container">
         <ul className="grid grid-cols-2 px-5 py-5 small:grid-cols-4 gap-x-4 gap-y-8">
           {data
